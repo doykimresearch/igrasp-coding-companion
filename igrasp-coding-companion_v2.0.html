@@ -50,9 +50,8 @@
   --font-quote: "Source Serif 4", Georgia, "Times New Roman", serif;
   --step--1: 0.9375rem;
   --step-0: 1.0625rem;
-  --step-1: 1.1875rem;
-  --step-2: 1.4375rem;
-  --step-3: 1.75rem;
+  --step-1: 1.25rem;
+  --step-2: 1.625rem;
   --radius: 4px;
   --gutter: max(16px, env(safe-area-inset-left, 0px));
 }
@@ -143,15 +142,15 @@ a:hover { text-decoration-thickness: 2px; }
 .masthead { border-bottom: 1px solid var(--line); }
 .masthead .wrap {
   display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
-  gap: 2px 20px; padding-block: 12px 10px;
+  gap: 4px 24px; padding-block: 12px 12px;
 }
 .brand { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 12px; }
 .brand-name { font-weight: 700; font-size: var(--step-1); }
 .brand-meta { color: var(--muted); font-size: var(--step--1); }
-.tools { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 18px; }
+.tools { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 16px; }
 .tool-link, .theme-toggle {
   font: inherit; font-size: var(--step--1); color: var(--ink);
-  background: none; border: 0; padding: 6px 0; cursor: pointer;
+  background: none; border: 0; padding: 8px 0; cursor: pointer;
   text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;
 }
 .tool-link:hover, .theme-toggle:hover { text-decoration-thickness: 2px; }
@@ -166,25 +165,25 @@ body::before {
   background: var(--page);
   border-bottom: 1px solid var(--line-strong);
 }
-.topbar .wrap { display: grid; gap: 8px; padding-block: 0 10px; }
+.topbar .wrap { display: grid; gap: 8px; padding-block: 0 12px; }
 
-.views { display: flex; gap: 22px; border-bottom: 1px solid var(--line); }
+.views { display: flex; gap: 24px; border-bottom: 1px solid var(--line); }
 .views a {
-  text-decoration: none; padding: 10px 0 8px; border-bottom: 3px solid transparent;
+  text-decoration: none; padding: 12px 0 8px; border-bottom: 3px solid transparent;
   color: var(--muted); font-weight: 600; margin-bottom: -1px;
 }
 .views a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink); }
 .views a:hover { color: var(--ink); }
 
-.picker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; }
-.cj-nav { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.picker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+.cj-nav { display: flex; flex-wrap: wrap; gap: 8px 16px; }
 .cj-group { display: flex; align-items: center; }
 .cj-group-label { color: var(--muted); font-size: var(--step--1); margin-right: 8px; }
 
 /* Conjectures, code filter, and tree tabs share one segmented control. */
 .cj-btn, .filter button, .tree-tabs a {
   font: inherit; font-size: var(--step--1); font-weight: 600; cursor: pointer;
-  min-height: 34px; padding: 3px 10px; margin-left: -1px;
+  min-height: 34px; padding: 4px 12px; margin-left: -1px;
   display: inline-flex; align-items: center; justify-content: center;
   border: 1px solid var(--line-strong); border-radius: 0; background: var(--page); color: var(--ink);
   text-decoration: none; font-variant-numeric: tabular-nums; position: relative;
@@ -214,14 +213,14 @@ body::before {
 /* ---------- main ---------- */
 main { padding-block: 24px 48px; }
 main .wrap { display: grid; gap: 24px; }
-.view { display: grid; gap: 28px; }
+.view { display: grid; gap: 32px; }
 section, article { scroll-margin-top: 150px; }
 
 /* ---------- conjecture page ---------- */
-.cj { display: grid; gap: 22px; }
+.cj { display: grid; gap: 24px; }
 .cj-head { display: grid; gap: 12px; }
-.cj-title-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; }
-.cj-title { font-size: var(--step-3); font-weight: 700; }
+.cj-title-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; }
+.cj-title { font-size: var(--step-2); font-weight: 700; }
 .cj-id { font-variant-numeric: tabular-nums; color: var(--muted); }
 .truth { font-size: var(--step--1); font-weight: 600; color: var(--muted); }
 .truth-note { color: var(--muted); font-size: var(--step--1); flex-basis: 100%; }
@@ -232,31 +231,31 @@ section, article { scroll-margin-top: 150px; }
 
 .watch {
   max-width: 52rem; background: var(--caution-bg); border-radius: var(--radius);
-  padding: 12px 16px 14px; display: grid; gap: 6px;
+  padding: 12px 16px 16px; display: grid; gap: 8px;
 }
 .watch-title { display: flex; align-items: center; gap: 8px; color: var(--caution-ink); font-weight: 700; font-size: var(--step-0); }
 .watch-title svg { flex: none; }
-.watch ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+.watch ul { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
 
-.anchor-group { display: grid; gap: 14px; border-top: 1px solid var(--line); padding-top: 18px; }
-.anchor-head { display: grid; gap: 2px; }
-.anchor-head h3 { font-size: var(--step-2); font-weight: 700; }
+.anchor-group { display: grid; gap: 16px; border-top: 1px solid var(--line); padding-top: 16px; }
+.anchor-head { display: grid; gap: 4px; }
+.anchor-head h3 { font-size: var(--step-1); font-weight: 700; }
 .anchor-question { color: var(--muted); }
-.variant-label { font-size: var(--step--1); font-weight: 700; color: var(--muted); margin-top: 6px; }
+.variant-label { font-size: var(--step--1); font-weight: 700; color: var(--muted); margin-top: 8px; }
 .pair { display: grid; grid-template-columns: 1fr; gap: 16px; }
 @media (min-width: 760px) {
   .pair { grid-template-columns: 1fr 1fr; gap: 0; }
-  .pair > .ex + .ex { border-left: 1px solid var(--line); padding-left: 22px; margin-left: 22px; }
+  .pair > .ex + .ex { border-left: 1px solid var(--line); padding-left: 24px; margin-left: 24px; }
 }
 
 /* Each example is set like a numbered entry: the value in the margin, then the words. */
-.ex { display: grid; grid-template-columns: 1.75rem 1fr; gap: 6px 10px; align-content: start; }
+.ex { display: grid; grid-template-columns: 1.75rem 1fr; gap: 8px 12px; align-content: start; }
 .ex > :not(.ex-label) { grid-column: 2; }
 .ex-label { grid-column: 1; grid-row: 1 / span 2; }
 .ex-label > span:first-child {
   position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
 }
-.chip { font-size: 1.625rem; font-weight: 700; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.chip { font-size: var(--step-2); font-weight: 700; line-height: 1.05; font-variant-numeric: tabular-nums; }
 .chip.one { color: var(--code); }
 .chip.zero { color: var(--muted); }
 .ex.empty { color: var(--muted); font-size: var(--step--1); }
@@ -269,67 +268,67 @@ section, article { scroll-margin-top: 150px; }
 .why b { font-weight: 700; }
 
 /* ---------- codes view ---------- */
-.intro { display: grid; gap: 6px; max-width: 70ch; }
+.intro { display: grid; gap: 8px; max-width: 70ch; }
 .intro h2 { font-size: var(--step-1); }
-.code-card { display: grid; gap: 14px; border-top: 1px solid var(--line-strong); padding-top: 20px; }
-.code-card h2 { font-size: var(--step-3); color: var(--code); }
+.code-card { display: grid; gap: 16px; border-top: 1px solid var(--line-strong); padding-top: 24px; }
+.code-card h2 { font-size: var(--step-2); color: var(--code); }
 .code-q { font-size: var(--step-1); font-weight: 600; }
 .label { font-size: var(--step--1); color: var(--muted); font-weight: 700; margin-bottom: 4px; }
 .test { margin: 0; padding-left: 1.5em; display: grid; gap: 8px; }
 .test li::marker { font-weight: 700; color: var(--code); }
-.default { border-left: 3px solid var(--code); padding: 2px 0 2px 14px; }
-.reminders { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+.default { border-left: 3px solid var(--code); padding: 4px 0 4px 16px; }
+.reminders { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
 
-.pairs, .rules, .others { display: grid; gap: 14px; border-top: 1px solid var(--line-strong); padding-top: 20px; }
-.pairs h2, .rules h2, .others h2 { font-size: var(--step-2); }
-.pairs ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-.pair-tags { display: flex; flex-wrap: wrap; gap: 0 6px; margin-bottom: 2px; font-weight: 700; }
+.pairs, .rules, .others { display: grid; gap: 16px; border-top: 1px solid var(--line-strong); padding-top: 24px; }
+.pairs h2, .rules h2, .others h2 { font-size: var(--step-1); }
+.pairs ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.pair-tags { display: flex; flex-wrap: wrap; gap: 0 8px; margin-bottom: 4px; font-weight: 700; }
 .tag { color: var(--ink); }
 .tag[data-code] { color: var(--code); }
 .tag + .tag::before { content: "and "; color: var(--muted); font-weight: 400; }
 
 .rule {
   display: grid; grid-template-columns: 2.4rem 1fr; gap: 4px 8px; align-items: start;
-  scroll-margin-top: 150px; padding-block: 6px;
+  scroll-margin-top: 150px; padding-block: 8px;
 }
 .rule-id { font-weight: 700; font-variant-numeric: tabular-nums; }
-.rule-body { display: grid; gap: 6px; }
+.rule-body { display: grid; gap: 8px; }
 .rule-title { font-weight: 700; }
 .rule ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
 .rule:target { background: var(--surface-2); box-shadow: -8px 0 0 var(--surface-2), 8px 0 0 var(--surface-2); }
 
 .table-wrap { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: var(--step--1); }
-th, td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+th, td { text-align: left; vertical-align: top; padding: 8px 8px; border-bottom: 1px solid var(--line); }
 th { font-weight: 700; color: var(--muted); border-bottom-color: var(--line-strong); }
 td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-weight: 700; width: 5.5em; }
 .others p { color: var(--muted); }
 
-.group-intro { display: grid; gap: 6px; border-top: 2px solid var(--ink); padding-top: 24px; max-width: 70ch; }
-.group-intro h2 { font-size: var(--step-2); }
+.group-intro { display: grid; gap: 8px; border-top: 2px solid var(--ink); padding-top: 24px; max-width: 70ch; }
+.group-intro h2 { font-size: var(--step-1); }
 table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; width: 7.5em; }
 
 /* Gesture descriptions on a conjecture page: a short definition list, not 1 and 0 entries. */
-.gesture-list { margin: 0; display: grid; gap: 10px; }
-.gesture-list > div { display: grid; grid-template-columns: 10.5rem 1fr; gap: 2px 14px; }
+.gesture-list { margin: 0; display: grid; gap: 12px; }
+.gesture-list > div { display: grid; grid-template-columns: 10.5rem 1fr; gap: 4px 16px; }
 .gesture-list dt { font-weight: 700; }
 .gesture-list dd { margin: 0; }
 @media (max-width: 520px) { .gesture-list > div { grid-template-columns: 1fr; } }
 
 /* ---------- trees view ---------- */
 .tree-tabs { display: flex; flex-wrap: wrap; }
-.tree-cj-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.tree-cj-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
 .cj-btn[aria-pressed="true"] { background: var(--ink); color: var(--page); border-color: var(--ink); z-index: 1; }
-.tree-examples { display: grid; gap: 14px; border-top: 1px solid var(--line-strong); padding-top: 18px; }
+.tree-examples { display: grid; gap: 16px; border-top: 1px solid var(--line-strong); padding-top: 16px; }
 .tree-examples:empty { display: none; }
 .tree-examples h3 { font-size: var(--step-1); }
-.tree-anchor { display: grid; gap: 14px; }
+.tree-anchor { display: grid; gap: 16px; }
 .tree-examples .note { color: var(--muted); max-width: 70ch; }
 .tree { display: grid; gap: 16px; }
 .tree-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
-.tree-head h2 { color: var(--code); font-size: var(--step-3); }
+.tree-head h2 { color: var(--code); font-size: var(--step-2); }
 .btn {
-  font: inherit; font-weight: 600; cursor: pointer; min-height: 40px; padding: 6px 16px; border-radius: var(--radius);
+  font: inherit; font-weight: 600; cursor: pointer; min-height: 40px; padding: 8px 16px; border-radius: var(--radius);
   border: 1px solid var(--ink); background: var(--page); color: var(--ink);
 }
 .btn.primary { background: var(--ink); color: var(--page); }
@@ -339,7 +338,7 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
 
 /* The spine is the flowchart: one marker per question, joined by a line. */
 .spine { list-style: none; margin: 0; padding: 0; display: grid; }
-.spine > li { position: relative; padding-left: 30px; padding-bottom: 22px; }
+.spine > li { position: relative; padding-left: 32px; padding-bottom: 24px; }
 .spine > li::before {
   content: ""; position: absolute; left: 7px; top: 16px; bottom: 0; width: 2px; background: var(--line-strong);
 }
@@ -352,8 +351,8 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
 .node-q { font-weight: 700; font-size: var(--step-0); }
 .node-start { color: var(--ink); }
 .sid { display: inline-block; font-variant-numeric: tabular-nums; color: var(--code); margin-right: 8px; }
-.exits { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: var(--step--1); }
-.exit { display: inline-flex; align-items: center; gap: 6px; }
+.exits { display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: var(--step--1); }
+.exit { display: inline-flex; align-items: center; gap: 8px; }
 .exit .ans { font-weight: 700; }
 .outcome { font-weight: 700; font-variant-numeric: tabular-nums; }
 .outcome.one { color: var(--code); }
@@ -364,23 +363,29 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
   padding: 8px 12px; display: grid; gap: 4px;
 }
 .node-watch > p:first-child strong:first-child { color: var(--caution-ink); }
-.node-watch .watch-lead { font-weight: 700; margin-top: 2px; }
-.node-watch ul { margin: 0; padding-left: 1.2em; display: grid; gap: 2px; }
+.node-watch .watch-lead { font-weight: 700; margin-top: 4px; }
+.node-watch ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
 
 .stepper {
-  padding: 16px 18px; display: grid; gap: 14px;
-  border: 1px solid var(--line-strong); border-top: 3px solid var(--code); border-radius: var(--radius);
+  scroll-margin-top: 160px; padding: 16px; display: grid; gap: 16px;
+  border: 1px solid var(--line-strong); border-radius: var(--radius);
 }
-.stepper .trail { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 0; font-size: var(--step--1); color: var(--muted); }
+/* A folded Watch-for note in the stepper: one amber line that opens to the full note. */
+.step-watch { background: var(--caution-bg); border-radius: var(--radius); padding: 8px 12px; font-size: var(--step--1); }
+.step-watch > summary { cursor: pointer; font-weight: 700; color: var(--caution-ink); }
+.step-watch[open] > summary { margin-bottom: 8px; }
+.step-watch .node-watch { background: none; padding: 0; }
+.stepper .tree-examples { border-top: 1px solid var(--line); padding-top: 16px; }
+.stepper .trail { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 0; font-size: var(--step--1); color: var(--muted); }
 .stepper .trail li + li::before { content: "\203A"; margin-inline: 8px; }
 .stepper .now-q { font-size: var(--step-1); font-weight: 700; }
 .stepper .answers { display: flex; flex-wrap: wrap; gap: 8px; }
-.stepper .result { display: flex; align-items: baseline; gap: 10px; font-size: var(--step-1); font-weight: 700; }
+.stepper .result { display: flex; align-items: baseline; gap: 12px; font-size: var(--step-1); font-weight: 700; }
 .stepper .controls { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* ---------- footer ---------- */
 .site-foot { color: var(--muted); font-size: var(--step--1); padding-block: 8px 32px; }
-.site-foot .wrap { display: grid; gap: 4px; border-top: 1px solid var(--line); padding-top: 14px; }
+.site-foot .wrap { display: grid; gap: 4px; border-top: 1px solid var(--line); padding-top: 16px; }
 
 @media (max-width: 520px) {
   .cj-group-label { min-width: 4.5em; }
@@ -438,8 +443,8 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
               <a class="cj-btn" href="#i6" data-cj="i6" title="i6: Circle" aria-label="i6, Circle">i6</a>
             </div>
           </nav>
-          <div id="code-filter" class="filter" role="group" aria-label="Show anchors for">
-            <span class="filter-label" aria-hidden="true">Show</span>
+          <div id="code-filter" class="filter" role="group" aria-label="Code to show">
+            <span class="filter-label" aria-hidden="true">Code</span>
             <button type="button" data-filter="all" aria-pressed="false">All codes</button>
             <button type="button" data-filter="general" data-code="general" aria-pressed="false">General</button>
             <button type="button" data-filter="logical" data-code="logical" aria-pressed="false">Logical</button>
@@ -475,9 +480,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 Watch for on this conjecture
               </h3>
               <ul>
-                <li>An analogy or stand-in object ("a Kleenex box") is coded by the reasoning that follows it, so General is 1 only if that reasoning addresses all prisms rather than the imagined box.</li>
-                <li>Thinking of a triangle beside a recalled fact is not an operation. A construction earns Operative when the participant names the parts that build it ("a triangle of an edge, a face diagonal, and the space diagonal").</li>
-                <li>For Logical, the participant must also say where the diagonal sits in the construction. "Connecting the corners makes a triangle" together with "the hypotenuse is the longest side," with no word on which line is the hypotenuse, leaves the middle step to the reader and is 0.</li>
+                <li data-codes="general">An analogy or stand-in object ("a Kleenex box") is coded by the reasoning that follows it, so General is 1 only if that reasoning addresses all prisms rather than the imagined box.</li>
+                <li data-codes="operative">Thinking of a triangle beside a recalled fact is not an operation. A construction earns Operative when the participant names the parts that build it ("a triangle of an edge, a face diagonal, and the space diagonal").</li>
+                <li data-codes="logical">For Logical, the participant must also say where the diagonal sits in the construction. "Connecting the corners makes a triangle" together with "the hypotenuse is the longest side," with no word on which line is the hypotenuse, leaves the middle step to the reader and is 0.</li>
               </ul>
             </div>
             <div class="anchor-group" data-code="general">
@@ -618,9 +623,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 Watch for on this conjecture
               </h3>
               <ul>
-                <li>A polygon named by its number of sides ("a triangle," "a hexagon") is a case specific enough to check even when the participant does not say "regular," and a loose estimate of the individual angles does not invalidate a case whose sum is in fact not 360.</li>
-                <li>A wrong remark beside a valid case does not undo the case: "a triangle is 180, and I don't think a square counts as a polygon" still offers a valid counterexample (<a href="#rule-C4">Rule C4</a>).</li>
-                <li>Totalling values already given ("four right angles make 360") is not an operation, although Logical may credit it as a step, because a computation whose operands and result are stated is a chain even on a single instance.</li>
+                <li data-codes="general logical">A polygon named by its number of sides ("a triangle," "a hexagon") is a case specific enough to check even when the participant does not say "regular," and a loose estimate of the individual angles does not invalidate a case whose sum is in fact not 360.</li>
+                <li data-codes="general logical">A wrong remark beside a valid case does not undo the case: "a triangle is 180, and I don't think a square counts as a polygon" still offers a valid counterexample (<a href="#rule-C4">Rule C4</a>).</li>
+                <li data-codes="logical operative">Totalling values already given ("four right angles make 360") is not an operation, although Logical may credit it as a step, because a computation whose operands and result are stated is a chain even on a single instance.</li>
               </ul>
             </div>
             <div class="anchor-group" data-code="general">
@@ -761,9 +766,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 Watch for on this conjecture
               </h3>
               <ul>
-                <li>A stated result can be wrong and still earn Operative, because Operative is a form code (<a href="#rule-C1">Rule C1</a>); the Operative 1 excerpt below arrives at the wrong ratio.</li>
-                <li>The same words can earn one code and not another. The General 1 excerpt opens with the Logical 0 excerpt ("less space"), and it is the added "you can always nest multiple pyramids" that earns General, while Logical still needs a step that reaches one-third.</li>
-                <li>Setting up the figure the conjecture describes is the starting state, not an operation; placing the pyramid inside the prism and saying what the remaining pieces are is an operation.</li>
+                <li data-codes="operative">A stated result can be wrong and still earn Operative, because Operative is a form code (<a href="#rule-C1">Rule C1</a>); the Operative 1 excerpt below arrives at the wrong ratio.</li>
+                <li data-codes="general logical">The same words can earn one code and not another. The General 1 excerpt opens with the Logical 0 excerpt ("less space"), and it is the added "you can always nest multiple pyramids" that earns General, while Logical still needs a step that reaches one-third.</li>
+                <li data-codes="operative">Setting up the figure the conjecture describes is the starting state, not an operation; placing the pyramid inside the prism and saying what the remaining pieces are is an operation.</li>
               </ul>
             </div>
             <div class="anchor-group" data-code="general">
@@ -904,9 +909,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 Watch for on this conjecture
               </h3>
               <ul>
-                <li>This conjecture carries the General boundary most likely to need discussion: a derivation on an unspecified triangle, with no claim that it covers all triangles, is 0. Both General excerpts below find the third angle, and only the first states that it is "always determined."</li>
-                <li>A participant's "any" that is about something other than the conclusion, such as the meaning of the word "similar," does not make the reasoning general.</li>
-                <li>Subtracting the two known angles from 180 to get the third is an operation on quantities; citing the 180° rule and then stating the conclusion is not.</li>
+                <li data-codes="general">This conjecture carries the General boundary most likely to need discussion: a derivation on an unspecified triangle, with no claim that it covers all triangles, is 0. Both General excerpts below find the third angle, and only the first states that it is "always determined."</li>
+                <li data-codes="general">A participant's "any" that is about something other than the conclusion, such as the meaning of the word "similar," does not make the reasoning general.</li>
+                <li data-codes="operative">Subtracting the two known angles from 180 to get the third is an operation on quantities; citing the 180° rule and then stating the conclusion is not.</li>
               </ul>
             </div>
             <div class="anchor-group" data-code="general">
@@ -1047,9 +1052,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 Watch for on this conjecture
               </h3>
               <ul>
-                <li>A vertical cut, whether the participant calls it down the middle, through the tip, or perpendicular to the base, gives a section that is neither a circle nor an ellipse, so naming the cut and a triangular result is a valid counterexample.</li>
-                <li>For Logical, the participant must say what the cut produces (a triangle, a straight edge); saying only that the result is not a circle or an ellipse shows that the conjecture fails without showing why. For Operative, by contrast, what the result is not ("not a circle or an ellipse") does count as a stated result.</li>
-                <li>"No matter what angle you slice" ranges over every angle at once and names no particular slice, so it is not an operation.</li>
+                <li data-codes="general">A vertical cut, whether the participant calls it down the middle, through the tip, or perpendicular to the base, gives a section that is neither a circle nor an ellipse, so naming the cut and a triangular result is a valid counterexample.</li>
+                <li data-codes="logical operative">For Logical, the participant must say what the cut produces (a triangle, a straight edge); saying only that the result is not a circle or an ellipse shows that the conjecture fails without showing why. For Operative, by contrast, what the result is not ("not a circle or an ellipse") does count as a stated result.</li>
+                <li data-codes="operative">"No matter what angle you slice" ranges over every angle at once and names no particular slice, so it is not an operation.</li>
               </ul>
             </div>
             <div class="anchor-group" data-code="general">
@@ -1190,9 +1195,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 Watch for on this conjecture
               </h3>
               <ul>
-                <li>A counterexample must be named specifically enough to check (a trapezoid with one base much longer than the other). A description that mixes correct and incorrect claims, such as "an isosceles trapezoid bisects but others do not," or a "concave trapezoid," earns neither General nor Logical (<a href="#rule-C4">Rule C4</a>).</li>
-                <li>Neither naming a kind of case ("a trapezoid whose sides are angled differently") nor naming a change only by its effect ("modify it so they don't bisect") names an operation.</li>
-                <li>Drawing the diagonals is the figure the conjecture already describes, not a change to it.</li>
+                <li data-codes="general logical">A counterexample must be named specifically enough to check (a trapezoid with one base much longer than the other). A description that mixes correct and incorrect claims, such as "an isosceles trapezoid bisects but others do not," or a "concave trapezoid," earns neither General nor Logical (<a href="#rule-C4">Rule C4</a>).</li>
+                <li data-codes="operative">Neither naming a kind of case ("a trapezoid whose sides are angled differently") nor naming a change only by its effect ("modify it so they don't bisect") names an operation.</li>
+                <li data-codes="operative">Drawing the diagonals is the figure the conjecture already describes, not a change to it.</li>
               </ul>
             </div>
             <div class="anchor-group" data-code="general">
@@ -1333,9 +1338,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 Watch for on this conjecture
               </h3>
               <ul>
-                <li>A watched manipulation earns Operative on exactly the same terms as a performed one; the last row below is a retelling from the Watch condition.</li>
-                <li>Describing how the property runs with the figure's state ("larger angles when the lines are farther apart") names no operation. A line must be moved, or placed at a stated position, and the outcome stated.</li>
-                <li>"No matter where I was moving that blue parallel line" is about the one line moved in VR, so it does not extend the case to the whole class.</li>
+                <li data-codes="operative">A watched manipulation earns Operative on exactly the same terms as a performed one; the last row below is a retelling from the Watch condition.</li>
+                <li data-codes="operative">Describing how the property runs with the figure's state ("larger angles when the lines are farther apart") names no operation. A line must be moved, or placed at a stated position, and the outcome stated.</li>
+                <li data-codes="general">"No matter where I was moving that blue parallel line" is about the one line moved in VR, so it does not extend the case to the whole class.</li>
               </ul>
             </div>
             <div class="anchor-group" data-code="general">
@@ -1490,9 +1495,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 Watch for on this conjecture
               </h3>
               <ul>
-                <li>The two General excerpts carry out the same computation, and only the explicit extension ("that applies to like any") earns General.</li>
-                <li>That computation, with its operands and result stated (1 × 1 × 1 = 1 and 2 × 2 × 2 = 8, therefore eight times), is a chain even on one cube, so it can earn Logical whichever way General goes.</li>
-                <li>"The sides doubled" describes the setup. For Operative, the stated result must concern the volume.</li>
+                <li data-codes="general">The two General excerpts carry out the same computation, and only the explicit extension ("that applies to like any") earns General.</li>
+                <li data-codes="logical">That computation, with its operands and result stated (1 × 1 × 1 = 1 and 2 × 2 × 2 = 8, therefore eight times), is a chain even on one cube, so it can earn Logical whichever way General goes.</li>
+                <li data-codes="operative">"The sides doubled" describes the setup. For Operative, the stated result must concern the volume.</li>
               </ul>
             </div>
             <div class="anchor-group" data-code="general">
@@ -1633,9 +1638,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 Watch for on this conjecture
               </h3>
               <ul>
-                <li>A refutation that is not a counterexample earns General only through the ordinary test, when the participant states it for all cylinders in their own words: "the width is always the circumference, which is pi times the diameter, not twice it" earns General (<a href="#rule-C4">Rule C4</a>).</li>
-                <li>Citing 2πr is not an operation; carrying out the unrolling, so that the width becomes 2πr, that is πD, rather than twice the diameter, is one.</li>
-                <li>A conclusion that rests on the demonstration ("we saw in the demonstration") is about the one cylinder shown and is General 0.</li>
+                <li data-codes="general">A refutation that is not a counterexample earns General only through the ordinary test, when the participant states it for all cylinders in their own words: "the width is always the circumference, which is pi times the diameter, not twice it" earns General (<a href="#rule-C4">Rule C4</a>).</li>
+                <li data-codes="operative">Citing 2πr is not an operation; carrying out the unrolling, so that the width becomes 2πr, that is πD, rather than twice the diameter, is one.</li>
+                <li data-codes="general">A conclusion that rests on the demonstration ("we saw in the demonstration") is about the one cylinder shown and is General 0.</li>
               </ul>
             </div>
             <div class="anchor-group" data-code="general">
@@ -1772,9 +1777,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 Watch for on this conjecture
               </h3>
               <ul>
-                <li>A strong deductive argument does not make a response Operative: the Operative 0 excerpt is a deductive statement that earns Logical, with nothing done to the triangle.</li>
-                <li>Proof by contradiction ("if the sum were smaller, the sides could not meet") is a chain for Logical.</li>
-                <li>Several tested triangles, however different from one another, earn General only with an explicit claim about the class.</li>
+                <li data-codes="logical operative">A strong deductive argument does not make a response Operative: the Operative 0 excerpt is a deductive statement that earns Logical, with nothing done to the triangle.</li>
+                <li data-codes="logical">Proof by contradiction ("if the sum were smaller, the sides could not meet") is a chain for Logical.</li>
+                <li data-codes="general">Several tested triangles, however different from one another, earn General only with an explicit claim about the class.</li>
               </ul>
             </div>
             <div class="anchor-group" data-code="general">
@@ -1916,9 +1921,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 Watch for on this conjecture
               </h3>
               <ul>
-                <li><a href="#rule-C5">Rule C5</a> (Side 2 of the card) decides Intuition and Insight here. The form codes are coded on their usual terms, which is why the General 1 and Logical 1 excerpts both carry Insight = 0: each misses the tangent case.</li>
-                <li>"A sphere is round, so any cut is a circle" is 0 for both General and Logical: "any cut is a circle" restates the conjecture, and roundness alone does not explain why the cut must be a circle (an egg is round too).</li>
-                <li>A conditional names an operation when it says where the plane is placed and what results ("at the very top it'd be a point"), as in the last row below.</li>
+                <li data-codes="general logical operative"><a href="#rule-C5">Rule C5</a> (Side 2 of the card) decides Intuition and Insight here. The form codes are coded on their usual terms, which is why the General 1 and Logical 1 excerpts both carry Insight = 0: each misses the tangent case.</li>
+                <li data-codes="general logical">"A sphere is round, so any cut is a circle" is 0 for both General and Logical: "any cut is a circle" restates the conjecture, and roundness alone does not explain why the cut must be a circle (an egg is round too).</li>
+                <li data-codes="operative">A conditional names an operation when it says where the plane is placed and what results ("at the very top it'd be a point"), as in the last row below.</li>
               </ul>
             </div>
             <div class="anchor-group" data-code="general">
@@ -2073,9 +2078,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 Watch for on this conjecture
               </h3>
               <ul>
-                <li>The excerpts are crossed on purpose. The General 1 excerpt is Operative 0, and the Logical 0 excerpt is Operative 1, because each code asks its own question of the same words.</li>
-                <li>One reason followed by the verdict ("the chord is always the same distance from the center, so the bisector goes through it") is a premise and a conclusion, not a chain, however apt the reason.</li>
-                <li>A retelling must name the motion. Seeing the line pass through the center is an end state, and it is Operative 0 in the Watch condition as in the Perform condition (last row).</li>
+                <li data-codes="general logical operative">The excerpts are crossed on purpose. The General 1 excerpt is Operative 0, and the Logical 0 excerpt is Operative 1, because each code asks its own question of the same words.</li>
+                <li data-codes="logical">One reason followed by the verdict ("the chord is always the same distance from the center, so the bisector goes through it") is a premise and a conclusion, not a chain, however apt the reason.</li>
+                <li data-codes="operative">A retelling must name the motion. Seeing the line pass through the center is an end state, and it is Operative 0 in the Watch condition as in the Perform condition (last row).</li>
               </ul>
             </div>
             <div class="anchor-group" data-code="general">
@@ -3363,6 +3368,17 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
     $all(".anchor-group").forEach(function (g) {
       g.hidden = state.filter !== "all" && g.getAttribute("data-code") !== state.filter;
     });
+    // Choosing a code also narrows the Watch-for box to that code's warnings, and hides the
+    // box when none apply, so the examples for the code at hand move up the page.
+    $all(".cj .watch").forEach(function (w) {
+      var shown = 0;
+      $all("li[data-codes]", w).forEach(function (li) {
+        var hide = state.filter !== "all" && (" " + li.getAttribute("data-codes") + " ").indexOf(" " + state.filter + " ") < 0;
+        li.hidden = hide;
+        if (!hide) shown++;
+      });
+      w.hidden = shown === 0;
+    });
   }
   filterBtns.forEach(function (b) {
     b.addEventListener("click", function () {
@@ -3566,7 +3582,30 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
     function outcomeHtml(v) {
       return '<span class="outcome ' + (String(v) === "1" ? "one" : "zero") + '">' + data.outcome_label + " " + v + "</span>";
     }
+    // While stepping, the conjecture's examples move inside the stepper, under the answer
+    // buttons, so they sit next to the decision; they move back below when the stepper closes.
+    var examples = $(".tree-examples", treeEl);
+    function parkExamples() {
+      if (examples && examples.parentNode === box) treeEl.appendChild(examples);
+    }
+    // A long Watch-for note is folded behind a one-line summary, so it does not push the
+    // answer buttons and the examples out of view; a short one stays open.
+    function watchDetails(html) {
+      var holder = el("div", "", html);
+      var note = holder.firstElementChild;
+      if (!note) return null;
+      var first = note.firstElementChild;
+      if (first && first.tagName === "P" && /^Watch for\.?\s*$/.test(first.textContent)) note.removeChild(first);
+      else if (first && first.firstElementChild && first.firstElementChild.tagName === "STRONG") first.removeChild(first.firstElementChild);
+      var points = $all("li", note).length;
+      var d = el("details", "step-watch");
+      d.appendChild(el("summary", "", "Watch for" + (points ? " (" + points + " points)" : "")));
+      d.appendChild(note);
+      d.open = note.textContent.length < 300;
+      return d;
+    }
     function draw() {
+      parkExamples();
       box.innerHTML = "";
       if (path.length) {
         var trail = el("ol", "trail");
@@ -3587,6 +3626,7 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
         c.appendChild(backButton());
         c.appendChild(closeButton());
         box.appendChild(c);
+        if (examples) box.appendChild(examples);
         res.focus();
         return;
       }
@@ -3595,8 +3635,8 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
       q.setAttribute("tabindex", "-1");
       box.appendChild(q);
       if (s.watch) {
-        var holder = el("div", "", s.watch);
-        if (holder.firstElementChild) box.appendChild(holder.firstElementChild);
+        var d = watchDetails(s.watch);
+        if (d) box.appendChild(d);
       }
       var answers = el("div", "answers");
       [["Yes", s.if_yes], [s.if_no.label || "No", s.if_no]].forEach(function (pair) {
@@ -3614,6 +3654,7 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
       if (path.length) c2.appendChild(backButton());
       c2.appendChild(closeButton());
       box.appendChild(c2);
+      if (examples) box.appendChild(examples);
       q.focus();
     }
     function backButton() {
@@ -3631,6 +3672,7 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
       var b = el("button", "btn", "Show the whole tree");
       b.type = "button";
       b.addEventListener("click", function () {
+        parkExamples();
         box.hidden = true;
         spine.hidden = false;
         startBtn.hidden = false;
@@ -3646,6 +3688,9 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
       startBtn.hidden = true;
       box.hidden = false;
       draw();
+      // Bring the stepper up under the navigation bar, so the question, the answer buttons,
+      // and the examples are all in the window together.
+      box.scrollIntoView({ block: "start" });
     });
   });
 

@@ -2213,6 +2213,90 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
             <h2>How to work through a response</h2>
             <p>Read the whole segment once before coding anything. Then, for each form code, apply its test in the order written, apply any rule that fits the response, and compare the response with the anchor pair on the conjecture's page. The anchors show how the general rule applies; they never create a rule that holds for one conjecture only. If you are still unsure, take the code's default, which for all three codes is <strong>0</strong>.</p>
           </div>
+          <div class="group-intro" id="group-validity">
+            <h2>Validity codes</h2>
+            <p>Intuition and Insight judge whether the content is correct, not the form of the justification (<a href="#rule-C1">Rule C1</a>). In the re-coding pass they are carried over from the first pass.</p>
+          </div>
+          <section class="panel code-card" id="code-intuition" data-code="intuition" tabindex="-1">
+            <h2>Intuition</h2>
+            <p class="code-q">What was the participant's first verdict, and was it correct?</p>
+            <div>
+              <p class="label">Test, in order</p>
+              <ol class="test">
+                <li>Find the first true/false verdict stated after the statement is read.</li>
+                <li>If it is explicit, score it against the key: correct = <strong>1</strong>, incorrect = <strong>0</strong>.</li>
+                <li>If no clean verdict is stated, infer the stance from a minimal cue ("yeah," "no," "I don't think so") or from reasoning that stays consistent to the end: correct = <strong>1_inferred</strong>, incorrect = <strong>0_inferred</strong>.</li>
+                <li>Only if nothing can be inferred, code <strong>missing</strong>.</li>
+              </ol>
+            </div>
+            <div>
+              <p class="label">Values</p>
+              <div class="table-wrap">
+                <table class="values">
+                  <thead>
+                    <tr>
+                      <th scope="col">Value</th>
+                      <th scope="col">Use when</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="value">1</td>
+                      <td>Correct verdict, stated explicitly at the outset.</td>
+                    </tr>
+                    <tr>
+                      <td class="value">0</td>
+                      <td>Incorrect verdict, stated explicitly at the outset.</td>
+                    </tr>
+                    <tr>
+                      <td class="value">1_inferred</td>
+                      <td>No clean explicit verdict, but a correct stance is inferable, from a minimal cue ("yeah," "no," "I don't think so") or from reasoning that stays consistent through to the end.</td>
+                    </tr>
+                    <tr>
+                      <td class="value">0_inferred</td>
+                      <td>As above, but the inferable stance is incorrect.</td>
+                    </tr>
+                    <tr>
+                      <td class="value">missing</td>
+                      <td>The participant went straight into reasoning and no verdict can be inferred at all.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div>
+              <p class="label">When in doubt</p>
+              <p class="default">Infer before you settle on missing. Later changes of mind never alter the code; it is locked to the first verdict.</p>
+            </div>
+            <ul class="reminders">
+              <li>For i5, the verdict is scored by <a href="#rule-C5">Rule C5</a>, not by the key alone.</li>
+            </ul>
+          </section>
+          <section class="panel code-card" id="code-insight" data-code="insight" tabindex="-1">
+            <h2>Insight</h2>
+            <p class="code-q">Is at least one correct, relevant mathematical idea present?</p>
+            <div>
+              <p class="label">Test, in order</p>
+              <ol class="test">
+                <li>Set aside the verdict; look at the ideas offered.</li>
+                <li>Is there a valid idea, relationship, computation, or counterexample that bears on why the conjecture holds or fails? If yes, and nothing said about it is mathematically wrong, code <strong>1</strong>.</li>
+                <li>If the only content is a restatement of the conjecture, a wrong idea, or no idea, code <strong>0</strong>.</li>
+              </ol>
+            </div>
+            <div>
+              <p class="label">When in doubt</p>
+              <p class="default"><strong>Generous.</strong> If the spirit of a valid idea is there and the reasoning is not wrong, code 1, even when it is partial or loosely worded.</p>
+            </div>
+            <ul class="reminders">
+              <li>A correct verdict with no idea is 0.</li>
+              <li>A wrong verdict can still carry a correct idea (code 1).</li>
+              <li>Counterexamples are judged by <a href="#rule-C4">Rule C4</a>.</li>
+            </ul>
+          </section>
+          <div class="group-intro" id="group-form">
+            <h2>Form codes</h2>
+            <p>General, Logical, and Operative judge the form of the justification, whether or not its content is correct, following Harel and Sowder's three characteristics of the transformational proof scheme (<a href="#rule-C1">Rule C1</a>). They are the three codes re-coded under codebook v2.0, and each keeps its color throughout the companion.</p>
+          </div>
           <section class="panel code-card" id="code-general" data-code="general" tabindex="-1">
             <h2>General</h2>
             <p class="code-q">Is the participant's end reasoning about the conjecture pitched at all cases?</p>
@@ -2309,86 +2393,6 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
                 </div>
                 <p>The three form codes judge the kind of justification, not whether it is right, so any of them can be 1 when the content is mathematically wrong (<a href="#rule-C1">Rule C1</a>). The one exception is a counterexample, which must be valid (<a href="#rule-C4">Rule C4</a>).</p>
               </li>
-            </ul>
-          </section>
-          <div class="group-intro" id="group-validity">
-            <h2>Validity codes</h2>
-            <p>Intuition and Insight judge whether the content is correct, not the form of the justification (<a href="#rule-C1">Rule C1</a>). In the re-coding pass they are carried over from the first pass.</p>
-          </div>
-          <section class="panel code-card" id="code-intuition" data-code="intuition" tabindex="-1">
-            <h2>Intuition</h2>
-            <p class="code-q">What was the participant's first verdict, and was it correct?</p>
-            <div>
-              <p class="label">Test, in order</p>
-              <ol class="test">
-                <li>Find the first true/false verdict stated after the statement is read.</li>
-                <li>If it is explicit, score it against the key: correct = <strong>1</strong>, incorrect = <strong>0</strong>.</li>
-                <li>If no clean verdict is stated, infer the stance from a minimal cue ("yeah," "no," "I don't think so") or from reasoning that stays consistent to the end: correct = <strong>1_inferred</strong>, incorrect = <strong>0_inferred</strong>.</li>
-                <li>Only if nothing can be inferred, code <strong>missing</strong>.</li>
-              </ol>
-            </div>
-            <div>
-              <p class="label">Values</p>
-              <div class="table-wrap">
-                <table class="values">
-                  <thead>
-                    <tr>
-                      <th scope="col">Value</th>
-                      <th scope="col">Use when</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="value">1</td>
-                      <td>Correct verdict, stated explicitly at the outset.</td>
-                    </tr>
-                    <tr>
-                      <td class="value">0</td>
-                      <td>Incorrect verdict, stated explicitly at the outset.</td>
-                    </tr>
-                    <tr>
-                      <td class="value">1_inferred</td>
-                      <td>No clean explicit verdict, but a correct stance is inferable, from a minimal cue ("yeah," "no," "I don't think so") or from reasoning that stays consistent through to the end.</td>
-                    </tr>
-                    <tr>
-                      <td class="value">0_inferred</td>
-                      <td>As above, but the inferable stance is incorrect.</td>
-                    </tr>
-                    <tr>
-                      <td class="value">missing</td>
-                      <td>The participant went straight into reasoning and no verdict can be inferred at all.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div>
-              <p class="label">When in doubt</p>
-              <p class="default">Infer before you settle on missing. Later changes of mind never alter the code; it is locked to the first verdict.</p>
-            </div>
-            <ul class="reminders">
-              <li>For i5, the verdict is scored by <a href="#rule-C5">Rule C5</a>, not by the key alone.</li>
-            </ul>
-          </section>
-          <section class="panel code-card" id="code-insight" data-code="insight" tabindex="-1">
-            <h2>Insight</h2>
-            <p class="code-q">Is at least one correct, relevant mathematical idea present?</p>
-            <div>
-              <p class="label">Test, in order</p>
-              <ol class="test">
-                <li>Set aside the verdict; look at the ideas offered.</li>
-                <li>Is there a valid idea, relationship, computation, or counterexample that bears on why the conjecture holds or fails? If yes, and nothing said about it is mathematically wrong, code <strong>1</strong>.</li>
-                <li>If the only content is a restatement of the conjecture, a wrong idea, or no idea, code <strong>0</strong>.</li>
-              </ol>
-            </div>
-            <div>
-              <p class="label">When in doubt</p>
-              <p class="default"><strong>Generous.</strong> If the spirit of a valid idea is there and the reasoning is not wrong, code 1, even when it is partial or loosely worded.</p>
-            </div>
-            <ul class="reminders">
-              <li>A correct verdict with no idea is 0.</li>
-              <li>A wrong verdict can still carry a correct idea (code 1).</li>
-              <li>Counterexamples are judged by <a href="#rule-C4">Rule C4</a>.</li>
             </ul>
           </section>
           <div class="group-intro" id="group-gesture-codes">
@@ -2529,11 +2533,11 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
             <p>Each tree is the code's test drawn as a sequence of yes-or-no questions. When you cannot answer "yes" on the evidence of the participant's own words, answer "no." The trees are for learning the tests and for settling a response you are unsure about; once the tests are familiar, the Codes view is faster. Pick the conjecture you are coding, and each tree shows that conjecture's anchors beneath it, so the examples are at hand while you decide.</p>
           </div>
           <nav class="tree-tabs" aria-label="Decision tree">
+            <a href="#tree-intuition" data-tree="intuition" data-code="intuition">Intuition</a>
+            <a href="#tree-insight" data-tree="insight" data-code="insight">Insight</a>
             <a href="#tree-general" data-tree="general" data-code="general">General</a>
             <a href="#tree-logical" data-tree="logical" data-code="logical">Logical</a>
             <a href="#tree-operative" data-tree="operative" data-code="operative">Operative</a>
-            <a href="#tree-intuition" data-tree="intuition" data-code="intuition">Intuition</a>
-            <a href="#tree-insight" data-tree="insight" data-code="insight">Insight</a>
             <a href="#tree-gestures" data-tree="gestures" data-code="gestures">Gesture units</a>
           </nav>
           <div class="tree-cj-picker" hidden role="group" aria-label="Show examples from conjecture">
@@ -2559,6 +2563,204 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
               </div>
             </div>
           </div>
+          <section class="tree" id="panel-tree-intuition" data-code="intuition" aria-labelledby="tree-h-intuition">
+            <div class="tree-head">
+              <h2 id="tree-h-intuition">Intuition</h2>
+              <button type="button" class="btn primary step-start" hidden>Step through a response</button>
+            </div>
+            <ol class="spine">
+              <li class="start">
+                <div class="panel node">
+                  <p class="node-start">
+                    <strong>Start. </strong>
+                    Find the first true/false verdict stated after the statement is read. The code is locked to that first verdict; later changes of mind never alter it.
+                  </p>
+                </div>
+              </li>
+              <li id="step-I1">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">I1</span>
+                    Is the first verdict stated explicitly?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="goto">go to I2</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="goto">go to I3</span>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li id="step-I2">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">I2</span>
+                    Does the verdict match the key?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome one">Intuition = 1</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">Intuition = 0</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      For i5, the verdict is scored by <a href="#rule-C5">Rule C5</a>, not by the key alone.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li id="step-I3">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">I3</span>
+                    Can a stance be inferred from a minimal cue ("yeah," "no," "I don't think so") or from reasoning that stays consistent to the end?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="goto">go to I4</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">Intuition = missing</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      Infer before you settle on missing. Missing is for a participant who went straight into reasoning, with no verdict that can be inferred at all.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li id="step-I4">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">I4</span>
+                    Does the inferred stance match the key?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">Intuition = 1_inferred</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">Intuition = 0_inferred</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      For i5, the stance is scored by <a href="#rule-C5">Rule C5</a>, not by the key alone.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ol>
+            <div class="panel stepper" hidden aria-live="polite"></div>
+            <section class="tree-examples" aria-label="Examples on the chosen conjecture"></section>
+          </section>
+          <section class="tree" id="panel-tree-insight" data-code="insight" aria-labelledby="tree-h-insight">
+            <div class="tree-head">
+              <h2 id="tree-h-insight">Insight</h2>
+              <button type="button" class="btn primary step-start" hidden>Step through a response</button>
+            </div>
+            <ol class="spine">
+              <li class="start">
+                <div class="panel node">
+                  <p class="node-start">
+                    <strong>Start. </strong>
+                    Set aside the verdict and look at the ideas offered.
+                  </p>
+                </div>
+              </li>
+              <li id="step-N1">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">N1</span>
+                    Is there a valid idea, relationship, computation, or counterexample that bears on why the conjecture holds or fails?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="goto">go to N2</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">Insight = 0</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      A restatement of the conjecture, a wrong idea, or no idea is 0, and so is a correct verdict with no idea. Counterexamples are judged by <a href="#rule-C4">Rule C4</a>. Insight is generous: the spirit of a valid idea is enough, even when it is partial or loosely worded.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li id="step-N2">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">N2</span>
+                    Is anything said about that idea mathematically wrong?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">Insight = 0</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome one">Insight = 1</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      A wrong verdict can still carry a correct idea, which is 1.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ol>
+            <div class="panel stepper" hidden aria-live="polite"></div>
+            <section class="tree-examples" aria-label="Examples on the chosen conjecture"></section>
+          </section>
           <section class="tree" id="panel-tree-general" data-code="general" aria-labelledby="tree-h-general">
             <div class="tree-head">
               <h2 id="tree-h-general">General</h2>
@@ -2972,204 +3174,6 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
             <div class="panel stepper" hidden aria-live="polite"></div>
             <section class="tree-examples" aria-label="Examples on the chosen conjecture"></section>
           </section>
-          <section class="tree" id="panel-tree-intuition" data-code="intuition" aria-labelledby="tree-h-intuition">
-            <div class="tree-head">
-              <h2 id="tree-h-intuition">Intuition</h2>
-              <button type="button" class="btn primary step-start" hidden>Step through a response</button>
-            </div>
-            <ol class="spine">
-              <li class="start">
-                <div class="panel node">
-                  <p class="node-start">
-                    <strong>Start. </strong>
-                    Find the first true/false verdict stated after the statement is read. The code is locked to that first verdict; later changes of mind never alter it.
-                  </p>
-                </div>
-              </li>
-              <li id="step-I1">
-                <div class="panel node">
-                  <p class="node-q">
-                    <span class="sid">I1</span>
-                    Is the first verdict stated explicitly?
-                  </p>
-                  <div class="exits">
-                    <span class="exit">
-                      <span class="ans">Yes</span>
-                      <span aria-hidden="true">→</span>
-                      <span class="visually-hidden"> leads to </span>
-                      <span class="goto">go to I2</span>
-                    </span>
-                    <span class="exit">
-                      <span class="ans">No</span>
-                      <span aria-hidden="true">→</span>
-                      <span class="visually-hidden"> leads to </span>
-                      <span class="goto">go to I3</span>
-                    </span>
-                  </div>
-                </div>
-              </li>
-              <li id="step-I2">
-                <div class="panel node">
-                  <p class="node-q">
-                    <span class="sid">I2</span>
-                    Does the verdict match the key?
-                  </p>
-                  <div class="exits">
-                    <span class="exit">
-                      <span class="ans">Yes</span>
-                      <span aria-hidden="true">→</span>
-                      <span class="visually-hidden"> leads to </span>
-                      <span class="outcome one">Intuition = 1</span>
-                    </span>
-                    <span class="exit">
-                      <span class="ans">No</span>
-                      <span aria-hidden="true">→</span>
-                      <span class="visually-hidden"> leads to </span>
-                      <span class="outcome zero">Intuition = 0</span>
-                    </span>
-                  </div>
-                  <div class="node-watch">
-                    <p>
-                      <strong>Watch for. </strong>
-                      For i5, the verdict is scored by <a href="#rule-C5">Rule C5</a>, not by the key alone.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li id="step-I3">
-                <div class="panel node">
-                  <p class="node-q">
-                    <span class="sid">I3</span>
-                    Can a stance be inferred from a minimal cue ("yeah," "no," "I don't think so") or from reasoning that stays consistent to the end?
-                  </p>
-                  <div class="exits">
-                    <span class="exit">
-                      <span class="ans">Yes</span>
-                      <span aria-hidden="true">→</span>
-                      <span class="visually-hidden"> leads to </span>
-                      <span class="goto">go to I4</span>
-                    </span>
-                    <span class="exit">
-                      <span class="ans">No</span>
-                      <span aria-hidden="true">→</span>
-                      <span class="visually-hidden"> leads to </span>
-                      <span class="outcome zero">Intuition = missing</span>
-                    </span>
-                  </div>
-                  <div class="node-watch">
-                    <p>
-                      <strong>Watch for. </strong>
-                      Infer before you settle on missing. Missing is for a participant who went straight into reasoning, with no verdict that can be inferred at all.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li id="step-I4">
-                <div class="panel node">
-                  <p class="node-q">
-                    <span class="sid">I4</span>
-                    Does the inferred stance match the key?
-                  </p>
-                  <div class="exits">
-                    <span class="exit">
-                      <span class="ans">Yes</span>
-                      <span aria-hidden="true">→</span>
-                      <span class="visually-hidden"> leads to </span>
-                      <span class="outcome zero">Intuition = 1_inferred</span>
-                    </span>
-                    <span class="exit">
-                      <span class="ans">No</span>
-                      <span aria-hidden="true">→</span>
-                      <span class="visually-hidden"> leads to </span>
-                      <span class="outcome zero">Intuition = 0_inferred</span>
-                    </span>
-                  </div>
-                  <div class="node-watch">
-                    <p>
-                      <strong>Watch for. </strong>
-                      For i5, the stance is scored by <a href="#rule-C5">Rule C5</a>, not by the key alone.
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ol>
-            <div class="panel stepper" hidden aria-live="polite"></div>
-            <section class="tree-examples" aria-label="Examples on the chosen conjecture"></section>
-          </section>
-          <section class="tree" id="panel-tree-insight" data-code="insight" aria-labelledby="tree-h-insight">
-            <div class="tree-head">
-              <h2 id="tree-h-insight">Insight</h2>
-              <button type="button" class="btn primary step-start" hidden>Step through a response</button>
-            </div>
-            <ol class="spine">
-              <li class="start">
-                <div class="panel node">
-                  <p class="node-start">
-                    <strong>Start. </strong>
-                    Set aside the verdict and look at the ideas offered.
-                  </p>
-                </div>
-              </li>
-              <li id="step-N1">
-                <div class="panel node">
-                  <p class="node-q">
-                    <span class="sid">N1</span>
-                    Is there a valid idea, relationship, computation, or counterexample that bears on why the conjecture holds or fails?
-                  </p>
-                  <div class="exits">
-                    <span class="exit">
-                      <span class="ans">Yes</span>
-                      <span aria-hidden="true">→</span>
-                      <span class="visually-hidden"> leads to </span>
-                      <span class="goto">go to N2</span>
-                    </span>
-                    <span class="exit">
-                      <span class="ans">No</span>
-                      <span aria-hidden="true">→</span>
-                      <span class="visually-hidden"> leads to </span>
-                      <span class="outcome zero">Insight = 0</span>
-                    </span>
-                  </div>
-                  <div class="node-watch">
-                    <p>
-                      <strong>Watch for. </strong>
-                      A restatement of the conjecture, a wrong idea, or no idea is 0, and so is a correct verdict with no idea. Counterexamples are judged by <a href="#rule-C4">Rule C4</a>. Insight is generous: the spirit of a valid idea is enough, even when it is partial or loosely worded.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li id="step-N2">
-                <div class="panel node">
-                  <p class="node-q">
-                    <span class="sid">N2</span>
-                    Is anything said about that idea mathematically wrong?
-                  </p>
-                  <div class="exits">
-                    <span class="exit">
-                      <span class="ans">Yes</span>
-                      <span aria-hidden="true">→</span>
-                      <span class="visually-hidden"> leads to </span>
-                      <span class="outcome zero">Insight = 0</span>
-                    </span>
-                    <span class="exit">
-                      <span class="ans">No</span>
-                      <span aria-hidden="true">→</span>
-                      <span class="visually-hidden"> leads to </span>
-                      <span class="outcome one">Insight = 1</span>
-                    </span>
-                  </div>
-                  <div class="node-watch">
-                    <p>
-                      <strong>Watch for. </strong>
-                      A wrong verdict can still carry a correct idea, which is 1.
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ol>
-            <div class="panel stepper" hidden aria-live="polite"></div>
-            <section class="tree-examples" aria-label="Examples on the chosen conjecture"></section>
-          </section>
           <section class="tree" id="panel-tree-gestures" data-code="gestures" aria-labelledby="tree-h-gestures">
             <div class="tree-head">
               <h2 id="tree-h-gestures">Gesture units</h2>
@@ -3282,7 +3286,7 @@ table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; wh
         <p>Set in Source Sans 3 and Source Serif 4 (Adobe, SIL Open Font License 1.1).</p>
       </div>
     </footer>
-    <script type="application/json" id="tree-data">{"general":{"name":"General","outcome_label":"General =","steps":[{"id":"G1","question":"In the participant's own words, is the conclusion stated to hold for all instances?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A property stated about the object (\"a sphere is round,\" \"the diagonal goes through three dimensions\") is not by itself a generalization, even when the verdict is confident; it earns General only when the participant uses it to conclude for all instances. A derivation on an unspecified triangle or cube, with no claim that it covers all such objects, is 0 (the <a href=\"#b4\">b4 page<\/a>). \"I can't think of a case where it fails,\" after trying cases, reports a search. An analogy (\"a Kleenex box\") is coded by the reasoning that follows it.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"next":"G2"}},{"id":"G2","question":"Is a tested case explicitly extended to the whole class?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The extension must be explicit (\"it works for one by one, and that applies to any cube\"); the same tested case without it is 0 (the <a href=\"#i2\">i2 page<\/a>). The claim about the class earns the code whether or not it is correct.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"next":"G3"}},{"id":"G3","question":"Is the conjecture false, and is it refuted by a valid counterexample?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Validity follows <a href=\"#rule-C4\">Rule C4<\/a>: mathematically correct, actually refuting the conjecture, and named specifically enough to check. An incorrect counterexample, or one whose description mixes correct and incorrect claims, earns neither General nor Logical, whereas a wrong remark beside a valid case does not undo the case. A refutation that is not a counterexample (\"the width is always the circumference, which is pi times the diameter, not twice it\") is judged at G1.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}}]},"logical":{"name":"Logical","outcome_label":"Logical =","steps":[{"id":"L0","question":"Does the reasoning rest on a counterexample?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    This branch applies <a href=\"#rule-C4\">Rule C4<\/a>. A response without a counterexample goes straight to the chain test at L1.\n  <\/p>\n<\/div>","if_yes":{"next":"L0a"},"if_no":{"next":"L1"}},{"id":"L0a","question":"Is the counterexample valid, that is, correct, actually refuting the conjecture, and named specifically enough to check?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    An invalid counterexample earns neither General nor Logical (<a href=\"#rule-C4\">Rule C4<\/a>).\n  <\/p>\n<\/div>","if_yes":{"next":"L0b"},"if_no":{"result":0}},{"id":"L0b","question":"Does the participant state what the case produces, such as a shape, sum, crossing point, straight edge, or corner?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The result may be loosely worded (\"somewhat of a triangle,\" \"it comes to a point\"). Saying only that the case fails, or that the result is not a circle or an ellipse, does not state what the case produces (the <a href=\"#b5\">b5 page<\/a>); such a response goes on to L1 and is checked for a chain like any other.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"next":"L1","label":"No, only that it fails"}},{"id":"L1","question":"Is a premise stated, that is, a fact, definition, computation, case, or if–then claim?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Specific numbers do not make reasoning empirical: a computation whose operands and result are stated (\"each angle is 90 and there are four, so 360\") supplies a step even on a single instance. A stated step counts even when the participant credits it to memory or a lesson, whereas authority offered in place of steps (\"it's a theorem\") or appearance (\"it looks right\") is not a premise. Steps need not all be correct.\n  <\/p>\n<\/div>","if_yes":{"next":"L2"},"if_no":{"result":0}},{"id":"L2","question":"Does the premise produce a stated intermediate claim that says more than the premise and is not the conclusion?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The conclusion, which is the conjecture's claim or its denial, is never the intermediate. A general property followed directly by the verdict (\"a sphere is round, so any cut is a circle\") has no intermediate, and neither does one reason followed by the verdict, however apt. A case that is only confirmed, with its outcome reported rather than derived (\"I pictured a square and it's 360\"), has no intermediate. A construction is a step when the participant builds the figure, places the target in it (\"the diagonal is its hypotenuse\"), and gives the fact that yields the conclusion; if the placement is not said, the middle step is left to the reader and the answer is no.\n  <\/p>\n<\/div>","if_yes":{"next":"L3"},"if_no":{"result":0}},{"id":"L3","question":"Is that intermediate claim then used to reach the conclusion?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The conclusion may be the verdict the participant has already given, when the intermediate is offered as its reason. A VR observation retold with its outcome is Operative, not Logical, unless the participant adds steps. A complete chain built on a misreading of the conjecture is Logical = 1 with Insight = 0, which is rare.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}}]},"operative":{"name":"Operative","outcome_label":"Operative =","steps":[{"id":"O1","question":"Operation: does the participant name a specific change to the object or its quantities, or a construction built from its named parts, that you could picture from their words? It may be performed in VR, watched, or only imagined.","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for.<\/strong>\n  <\/p>\n  <p class=\"watch-lead\">Counts as an operation:<\/p>\n  <ul>\n    <li>a change the participant makes to the object or its quantities (cut through the tip, unroll the surface, double each side);<\/li>\n    <li>a plane, line, or point placed at a stated position (\"at the very top it'd be a point\");<\/li>\n    <li>a construction whose parts are named (\"a perpendicular from the center to the chord\");<\/li>\n    <li>an operation on quantities that derives a value the case did not supply (subtracting the two known angles from 180 to get the third);<\/li>\n    <li>a VR manipulation, performed or watched, retold with the motion named (\"as I pulled the blue line closer\"), even if the mover is named loosely (\"it\") when the task leaves no doubt.<\/li>\n  <\/ul>\n  <p class=\"watch-lead\">Does not count:<\/p>\n  <ul>\n    <li>picturing or drawing the figure the conjecture already describes;<\/li>\n    <li>a figure thought of beside a recalled fact;<\/li>\n    <li>naming a kind of case (\"a trapezoid whose sides are angled differently\") or a change only by its effect (\"modify it so they don't bisect\");<\/li>\n    <li>ranging over all positions at once (\"no matter where you place the chord\");<\/li>\n    <li>a conditional that describes the figure's own state (\"if there were no top side\") or how the property runs with that state (\"larger angles when the lines are farther apart\");<\/li>\n    <li>reciting a relation or totalling values already given (\"four right angles make 360\");<\/li>\n    <li>recalling an end state, or that something was manipulated, without the motion that produced it.<\/li>\n  <\/ul>\n<\/div>","if_yes":{"next":"O2"},"if_no":{"result":0}},{"id":"O2","question":"Result: does the participant state what that operation produces?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A result may be a shape, size, position, or value, a direction of change (\"more space left\"), what the result is not (\"not a circle or an ellipse\"), or that the property changed or stayed the same. It may be hedged, loosely worded, revised, or wrong. A menu of possible outcomes that is not tied to the named operation, or a doubt in place of an outcome (\"who's to say where the midpoint is\"), is not a result.\n  <\/p>\n<\/div>","if_yes":{"next":"O3"},"if_no":{"result":0}},{"id":"O3","question":"Bearing: does the result concern the property the conjecture is about, not only the setup?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A result that describes only the setup (\"the sides doubled,\" \"it formed a rectangle\") does not bear on the property. The result need not reach the conjecture's own comparison: \"the width stays the same\" concerns the width.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}}]},"intuition":{"name":"Intuition","outcome_label":"Intuition =","steps":[{"id":"I1","question":"Is the first verdict stated explicitly?","watch":[],"if_yes":{"next":"I2"},"if_no":{"next":"I3"}},{"id":"I2","question":"Does the verdict match the key?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    For i5, the verdict is scored by <a href=\"#rule-C5\">Rule C5<\/a>, not by the key alone.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}},{"id":"I3","question":"Can a stance be inferred from a minimal cue (\"yeah,\" \"no,\" \"I don't think so\") or from reasoning that stays consistent to the end?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Infer before you settle on missing. Missing is for a participant who went straight into reasoning, with no verdict that can be inferred at all.\n  <\/p>\n<\/div>","if_yes":{"next":"I4"},"if_no":{"result":"missing"}},{"id":"I4","question":"Does the inferred stance match the key?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    For i5, the stance is scored by <a href=\"#rule-C5\">Rule C5<\/a>, not by the key alone.\n  <\/p>\n<\/div>","if_yes":{"result":"1_inferred"},"if_no":{"result":"0_inferred"}}]},"insight":{"name":"Insight","outcome_label":"Insight =","steps":[{"id":"N1","question":"Is there a valid idea, relationship, computation, or counterexample that bears on why the conjecture holds or fails?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A restatement of the conjecture, a wrong idea, or no idea is 0, and so is a correct verdict with no idea. Counterexamples are judged by <a href=\"#rule-C4\">Rule C4<\/a>. Insight is generous: the spirit of a valid idea is enough, even when it is partial or loosely worded.\n  <\/p>\n<\/div>","if_yes":{"next":"N2"},"if_no":{"result":0}},{"id":"N2","question":"Is anything said about that idea mathematically wrong?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A wrong verdict can still carry a correct idea, which is 1.\n  <\/p>\n<\/div>","if_yes":{"result":0},"if_no":{"result":1}}]},"gestures":{"name":"Gesture units","outcome_label":"This unit counts for","steps":[{"id":"U1","question":"Is the unit representational, that is, does it depict geometric content (a shape, a part, a location, or a transformation)?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Ignore beat gestures, self-touch, and incidental hand movement.\n  <\/p>\n<\/div>","if_yes":{"next":"U2"},"if_no":{"result":"neither code"}},{"id":"U2","question":"Does the hand do something to the imagined object (rotate, slide, fold, stretch, compress, slice, or carry it along a path), so that the object is shown in one state and then another?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A hand moving into position to show a shape, size, or location is placing the depiction, not transforming the object. Tracing that carries the object or its moving part along its path is Dynamic. A unit that both holds a form and moves to change it is Dynamic (<a href=\"#rule-C7\">Rule C7<\/a>).\n  <\/p>\n<\/div>","if_yes":{"result":"Dynamic Gesture"},"if_no":{"next":"U3"}},{"id":"U3","question":"Do the hands show the object's shape, outline, size, or location, point to or hold a part, or trace along an already-existing static line or arc?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Both gesture codes can be 1 in the same response when separate units qualify, so a static unit still counts for Non-dynamic when another unit is Dynamic.\n  <\/p>\n<\/div>","if_yes":{"result":"Non-dynamic Gesture"},"if_no":{"result":"neither code"}}]}}</script>
+    <script type="application/json" id="tree-data">{"intuition":{"name":"Intuition","outcome_label":"Intuition =","steps":[{"id":"I1","question":"Is the first verdict stated explicitly?","watch":[],"if_yes":{"next":"I2"},"if_no":{"next":"I3"}},{"id":"I2","question":"Does the verdict match the key?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    For i5, the verdict is scored by <a href=\"#rule-C5\">Rule C5<\/a>, not by the key alone.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}},{"id":"I3","question":"Can a stance be inferred from a minimal cue (\"yeah,\" \"no,\" \"I don't think so\") or from reasoning that stays consistent to the end?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Infer before you settle on missing. Missing is for a participant who went straight into reasoning, with no verdict that can be inferred at all.\n  <\/p>\n<\/div>","if_yes":{"next":"I4"},"if_no":{"result":"missing"}},{"id":"I4","question":"Does the inferred stance match the key?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    For i5, the stance is scored by <a href=\"#rule-C5\">Rule C5<\/a>, not by the key alone.\n  <\/p>\n<\/div>","if_yes":{"result":"1_inferred"},"if_no":{"result":"0_inferred"}}]},"insight":{"name":"Insight","outcome_label":"Insight =","steps":[{"id":"N1","question":"Is there a valid idea, relationship, computation, or counterexample that bears on why the conjecture holds or fails?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A restatement of the conjecture, a wrong idea, or no idea is 0, and so is a correct verdict with no idea. Counterexamples are judged by <a href=\"#rule-C4\">Rule C4<\/a>. Insight is generous: the spirit of a valid idea is enough, even when it is partial or loosely worded.\n  <\/p>\n<\/div>","if_yes":{"next":"N2"},"if_no":{"result":0}},{"id":"N2","question":"Is anything said about that idea mathematically wrong?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A wrong verdict can still carry a correct idea, which is 1.\n  <\/p>\n<\/div>","if_yes":{"result":0},"if_no":{"result":1}}]},"general":{"name":"General","outcome_label":"General =","steps":[{"id":"G1","question":"In the participant's own words, is the conclusion stated to hold for all instances?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A property stated about the object (\"a sphere is round,\" \"the diagonal goes through three dimensions\") is not by itself a generalization, even when the verdict is confident; it earns General only when the participant uses it to conclude for all instances. A derivation on an unspecified triangle or cube, with no claim that it covers all such objects, is 0 (the <a href=\"#b4\">b4 page<\/a>). \"I can't think of a case where it fails,\" after trying cases, reports a search. An analogy (\"a Kleenex box\") is coded by the reasoning that follows it.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"next":"G2"}},{"id":"G2","question":"Is a tested case explicitly extended to the whole class?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The extension must be explicit (\"it works for one by one, and that applies to any cube\"); the same tested case without it is 0 (the <a href=\"#i2\">i2 page<\/a>). The claim about the class earns the code whether or not it is correct.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"next":"G3"}},{"id":"G3","question":"Is the conjecture false, and is it refuted by a valid counterexample?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Validity follows <a href=\"#rule-C4\">Rule C4<\/a>: mathematically correct, actually refuting the conjecture, and named specifically enough to check. An incorrect counterexample, or one whose description mixes correct and incorrect claims, earns neither General nor Logical, whereas a wrong remark beside a valid case does not undo the case. A refutation that is not a counterexample (\"the width is always the circumference, which is pi times the diameter, not twice it\") is judged at G1.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}}]},"logical":{"name":"Logical","outcome_label":"Logical =","steps":[{"id":"L0","question":"Does the reasoning rest on a counterexample?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    This branch applies <a href=\"#rule-C4\">Rule C4<\/a>. A response without a counterexample goes straight to the chain test at L1.\n  <\/p>\n<\/div>","if_yes":{"next":"L0a"},"if_no":{"next":"L1"}},{"id":"L0a","question":"Is the counterexample valid, that is, correct, actually refuting the conjecture, and named specifically enough to check?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    An invalid counterexample earns neither General nor Logical (<a href=\"#rule-C4\">Rule C4<\/a>).\n  <\/p>\n<\/div>","if_yes":{"next":"L0b"},"if_no":{"result":0}},{"id":"L0b","question":"Does the participant state what the case produces, such as a shape, sum, crossing point, straight edge, or corner?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The result may be loosely worded (\"somewhat of a triangle,\" \"it comes to a point\"). Saying only that the case fails, or that the result is not a circle or an ellipse, does not state what the case produces (the <a href=\"#b5\">b5 page<\/a>); such a response goes on to L1 and is checked for a chain like any other.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"next":"L1","label":"No, only that it fails"}},{"id":"L1","question":"Is a premise stated, that is, a fact, definition, computation, case, or if–then claim?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Specific numbers do not make reasoning empirical: a computation whose operands and result are stated (\"each angle is 90 and there are four, so 360\") supplies a step even on a single instance. A stated step counts even when the participant credits it to memory or a lesson, whereas authority offered in place of steps (\"it's a theorem\") or appearance (\"it looks right\") is not a premise. Steps need not all be correct.\n  <\/p>\n<\/div>","if_yes":{"next":"L2"},"if_no":{"result":0}},{"id":"L2","question":"Does the premise produce a stated intermediate claim that says more than the premise and is not the conclusion?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The conclusion, which is the conjecture's claim or its denial, is never the intermediate. A general property followed directly by the verdict (\"a sphere is round, so any cut is a circle\") has no intermediate, and neither does one reason followed by the verdict, however apt. A case that is only confirmed, with its outcome reported rather than derived (\"I pictured a square and it's 360\"), has no intermediate. A construction is a step when the participant builds the figure, places the target in it (\"the diagonal is its hypotenuse\"), and gives the fact that yields the conclusion; if the placement is not said, the middle step is left to the reader and the answer is no.\n  <\/p>\n<\/div>","if_yes":{"next":"L3"},"if_no":{"result":0}},{"id":"L3","question":"Is that intermediate claim then used to reach the conclusion?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The conclusion may be the verdict the participant has already given, when the intermediate is offered as its reason. A VR observation retold with its outcome is Operative, not Logical, unless the participant adds steps. A complete chain built on a misreading of the conjecture is Logical = 1 with Insight = 0, which is rare.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}}]},"operative":{"name":"Operative","outcome_label":"Operative =","steps":[{"id":"O1","question":"Operation: does the participant name a specific change to the object or its quantities, or a construction built from its named parts, that you could picture from their words? It may be performed in VR, watched, or only imagined.","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for.<\/strong>\n  <\/p>\n  <p class=\"watch-lead\">Counts as an operation:<\/p>\n  <ul>\n    <li>a change the participant makes to the object or its quantities (cut through the tip, unroll the surface, double each side);<\/li>\n    <li>a plane, line, or point placed at a stated position (\"at the very top it'd be a point\");<\/li>\n    <li>a construction whose parts are named (\"a perpendicular from the center to the chord\");<\/li>\n    <li>an operation on quantities that derives a value the case did not supply (subtracting the two known angles from 180 to get the third);<\/li>\n    <li>a VR manipulation, performed or watched, retold with the motion named (\"as I pulled the blue line closer\"), even if the mover is named loosely (\"it\") when the task leaves no doubt.<\/li>\n  <\/ul>\n  <p class=\"watch-lead\">Does not count:<\/p>\n  <ul>\n    <li>picturing or drawing the figure the conjecture already describes;<\/li>\n    <li>a figure thought of beside a recalled fact;<\/li>\n    <li>naming a kind of case (\"a trapezoid whose sides are angled differently\") or a change only by its effect (\"modify it so they don't bisect\");<\/li>\n    <li>ranging over all positions at once (\"no matter where you place the chord\");<\/li>\n    <li>a conditional that describes the figure's own state (\"if there were no top side\") or how the property runs with that state (\"larger angles when the lines are farther apart\");<\/li>\n    <li>reciting a relation or totalling values already given (\"four right angles make 360\");<\/li>\n    <li>recalling an end state, or that something was manipulated, without the motion that produced it.<\/li>\n  <\/ul>\n<\/div>","if_yes":{"next":"O2"},"if_no":{"result":0}},{"id":"O2","question":"Result: does the participant state what that operation produces?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A result may be a shape, size, position, or value, a direction of change (\"more space left\"), what the result is not (\"not a circle or an ellipse\"), or that the property changed or stayed the same. It may be hedged, loosely worded, revised, or wrong. A menu of possible outcomes that is not tied to the named operation, or a doubt in place of an outcome (\"who's to say where the midpoint is\"), is not a result.\n  <\/p>\n<\/div>","if_yes":{"next":"O3"},"if_no":{"result":0}},{"id":"O3","question":"Bearing: does the result concern the property the conjecture is about, not only the setup?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A result that describes only the setup (\"the sides doubled,\" \"it formed a rectangle\") does not bear on the property. The result need not reach the conjecture's own comparison: \"the width stays the same\" concerns the width.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}}]},"gestures":{"name":"Gesture units","outcome_label":"This unit counts for","steps":[{"id":"U1","question":"Is the unit representational, that is, does it depict geometric content (a shape, a part, a location, or a transformation)?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Ignore beat gestures, self-touch, and incidental hand movement.\n  <\/p>\n<\/div>","if_yes":{"next":"U2"},"if_no":{"result":"neither code"}},{"id":"U2","question":"Does the hand do something to the imagined object (rotate, slide, fold, stretch, compress, slice, or carry it along a path), so that the object is shown in one state and then another?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A hand moving into position to show a shape, size, or location is placing the depiction, not transforming the object. Tracing that carries the object or its moving part along its path is Dynamic. A unit that both holds a form and moves to change it is Dynamic (<a href=\"#rule-C7\">Rule C7<\/a>).\n  <\/p>\n<\/div>","if_yes":{"result":"Dynamic Gesture"},"if_no":{"next":"U3"}},{"id":"U3","question":"Do the hands show the object's shape, outline, size, or location, point to or hold a part, or trace along an already-existing static line or arc?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Both gesture codes can be 1 in the same response when separate units qualify, so a static unit still counts for Non-dynamic when another unit is Dynamic.\n  <\/p>\n<\/div>","if_yes":{"result":"Non-dynamic Gesture"},"if_no":{"result":"neither code"}}]}}</script>
     <script>/* iGRASP Coding Companion: behavior.
    Progressive enhancement: without this script every section is shown in one long page.
    With it, one view (Conjectures, Codes, Trees) and one conjecture are shown at a time, the

@@ -206,6 +206,10 @@ body::before {
 [data-code="logical"] { --code: var(--logical); --code-tint: var(--logical-tint); }
 [data-code="operative"] { --code: var(--operative); --code-tint: var(--operative-tint); }
 .code-name { color: var(--code, var(--ink)); font-weight: 700; }
+/* The four carried-over codes stay in ink: color is kept for the three re-coded form codes. */
+[data-code="intuition"], [data-code="insight"], [data-code="dynamic"], [data-code="nondynamic"], [data-code="gestures"] {
+  --code: var(--ink); --code-tint: var(--surface-2);
+}
 
 /* ---------- main ---------- */
 main { padding-block: 24px 48px; }
@@ -301,8 +305,26 @@ th { font-weight: 700; color: var(--muted); border-bottom-color: var(--line-stro
 td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-weight: 700; width: 5.5em; }
 .others p { color: var(--muted); }
 
+.group-intro { display: grid; gap: 6px; border-top: 2px solid var(--ink); padding-top: 24px; max-width: 70ch; }
+.group-intro h2 { font-size: var(--step-2); }
+table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; width: 7.5em; }
+
+/* Gesture descriptions on a conjecture page: a short definition list, not 1 and 0 entries. */
+.gesture-list { margin: 0; display: grid; gap: 10px; }
+.gesture-list > div { display: grid; grid-template-columns: 10.5rem 1fr; gap: 2px 14px; }
+.gesture-list dt { font-weight: 700; }
+.gesture-list dd { margin: 0; }
+@media (max-width: 520px) { .gesture-list > div { grid-template-columns: 1fr; } }
+
 /* ---------- trees view ---------- */
 .tree-tabs { display: flex; flex-wrap: wrap; }
+.tree-cj-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.cj-btn[aria-pressed="true"] { background: var(--ink); color: var(--page); border-color: var(--ink); z-index: 1; }
+.tree-examples { display: grid; gap: 14px; border-top: 1px solid var(--line-strong); padding-top: 18px; }
+.tree-examples:empty { display: none; }
+.tree-examples h3 { font-size: var(--step-1); }
+.tree-anchor { display: grid; gap: 14px; }
+.tree-examples .note { color: var(--muted); max-width: 70ch; }
 .tree { display: grid; gap: 16px; }
 .tree-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
 .tree-head h2 { color: var(--code); font-size: var(--step-3); }

@@ -206,6 +206,10 @@ body::before {
 [data-code="logical"] { --code: var(--logical); --code-tint: var(--logical-tint); }
 [data-code="operative"] { --code: var(--operative); --code-tint: var(--operative-tint); }
 .code-name { color: var(--code, var(--ink)); font-weight: 700; }
+/* The four carried-over codes stay in ink: color is kept for the three re-coded form codes. */
+[data-code="intuition"], [data-code="insight"], [data-code="dynamic"], [data-code="nondynamic"], [data-code="gestures"] {
+  --code: var(--ink); --code-tint: var(--surface-2);
+}
 
 /* ---------- main ---------- */
 main { padding-block: 24px 48px; }
@@ -301,8 +305,26 @@ th { font-weight: 700; color: var(--muted); border-bottom-color: var(--line-stro
 td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-weight: 700; width: 5.5em; }
 .others p { color: var(--muted); }
 
+.group-intro { display: grid; gap: 6px; border-top: 2px solid var(--ink); padding-top: 24px; max-width: 70ch; }
+.group-intro h2 { font-size: var(--step-2); }
+table.values td.value { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; width: 7.5em; }
+
+/* Gesture descriptions on a conjecture page: a short definition list, not 1 and 0 entries. */
+.gesture-list { margin: 0; display: grid; gap: 10px; }
+.gesture-list > div { display: grid; grid-template-columns: 10.5rem 1fr; gap: 2px 14px; }
+.gesture-list dt { font-weight: 700; }
+.gesture-list dd { margin: 0; }
+@media (max-width: 520px) { .gesture-list > div { grid-template-columns: 1fr; } }
+
 /* ---------- trees view ---------- */
 .tree-tabs { display: flex; flex-wrap: wrap; }
+.tree-cj-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.cj-btn[aria-pressed="true"] { background: var(--ink); color: var(--page); border-color: var(--ink); z-index: 1; }
+.tree-examples { display: grid; gap: 14px; border-top: 1px solid var(--line-strong); padding-top: 18px; }
+.tree-examples:empty { display: none; }
+.tree-examples h3 { font-size: var(--step-1); }
+.tree-anchor { display: grid; gap: 14px; }
+.tree-examples .note { color: var(--muted); max-width: 70ch; }
 .tree { display: grid; gap: 16px; }
 .tree-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
 .tree-head h2 { color: var(--code); font-size: var(--step-3); }
@@ -422,6 +444,7 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
             <button type="button" data-filter="general" data-code="general" aria-pressed="false">General</button>
             <button type="button" data-filter="logical" data-code="logical" aria-pressed="false">Logical</button>
             <button type="button" data-filter="operative" data-code="operative" aria-pressed="false">Operative</button>
+            <button type="button" data-filter="gestures" data-code="gestures" aria-pressed="false">Gestures</button>
           </div>
         </div>
       </div>
@@ -553,6 +576,24 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                 </div>
               </div>
             </div>
+            <div class="anchor-group gesture-group" data-code="gestures">
+              <div class="anchor-head">
+                <h3>
+                  <span class="code-name">Gestures</span>
+                </h3>
+                <p class="anchor-question">What a qualifying gesture could look like on this conjecture, described in words. Code from the hands in the video.</p>
+              </div>
+              <dl class="gesture-list">
+                <div>
+                  <dt>Dynamic Gesture</dt>
+                  <dd>A finger drawing the diagonal as it travels from one corner, across a face, and up to the opposite corner.</dd>
+                </div>
+                <div>
+                  <dt>Non-dynamic Gesture</dt>
+                  <dd>Two cupped hands held apart to show the static box; pointing to where opposite corners sit.</dd>
+                </div>
+              </dl>
+            </div>
           </article>
           <article class="cj" id="cj-b2" data-cj="b2" data-title="Polygons and Angles" aria-labelledby="t-b2">
             <div class="panel cj-head">
@@ -677,6 +718,24 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                   </p>
                 </div>
               </div>
+            </div>
+            <div class="anchor-group gesture-group" data-code="gestures">
+              <div class="anchor-head">
+                <h3>
+                  <span class="code-name">Gestures</span>
+                </h3>
+                <p class="anchor-question">What a qualifying gesture could look like on this conjecture, described in words. Code from the hands in the video.</p>
+              </div>
+              <dl class="gesture-list">
+                <div>
+                  <dt>Dynamic Gesture</dt>
+                  <dd>Two flat hands opening apart to widen an angle, or repeated motions "adding" sides one after another.</dd>
+                </div>
+                <div>
+                  <dt>Non-dynamic Gesture</dt>
+                  <dd>Two fingers held at a fixed angle; outlining a polygon's static shape in the air.</dd>
+                </div>
+              </dl>
             </div>
           </article>
           <article class="cj" id="cj-b3" data-cj="b3" data-title="Pyramid Volume" aria-labelledby="t-b3">
@@ -803,6 +862,24 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                 </div>
               </div>
             </div>
+            <div class="anchor-group gesture-group" data-code="gestures">
+              <div class="anchor-head">
+                <h3>
+                  <span class="code-name">Gestures</span>
+                </h3>
+                <p class="anchor-question">What a qualifying gesture could look like on this conjecture, described in words. Code from the hands in the video.</p>
+              </div>
+              <dl class="gesture-list">
+                <div>
+                  <dt>Dynamic Gesture</dt>
+                  <dd>Hands miming pieces being flipped and packed to fill a prism, or a pyramid collapsing into a box.</dd>
+                </div>
+                <div>
+                  <dt>Non-dynamic Gesture</dt>
+                  <dd>Hands forming a static tent or pyramid shape; two flat hands marking the static height.</dd>
+                </div>
+              </dl>
+            </div>
           </article>
           <article class="cj" id="cj-b4" data-cj="b4" data-title="Similar Triangles" aria-labelledby="t-b4">
             <div class="panel cj-head">
@@ -927,6 +1004,24 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                   </p>
                 </div>
               </div>
+            </div>
+            <div class="anchor-group gesture-group" data-code="gestures">
+              <div class="anchor-head">
+                <h3>
+                  <span class="code-name">Gestures</span>
+                </h3>
+                <p class="anchor-question">What a qualifying gesture could look like on this conjecture, described in words. Code from the hands in the video.</p>
+              </div>
+              <dl class="gesture-list">
+                <div>
+                  <dt>Dynamic Gesture</dt>
+                  <dd>A hand flipping or rotating to mirror one triangle onto another, or hands moving apart to scale a triangle up while keeping its shape.</dd>
+                </div>
+                <div>
+                  <dt>Non-dynamic Gesture</dt>
+                  <dd>Fingers forming a static triangle; pointing to two corresponding angles held still.</dd>
+                </div>
+              </dl>
             </div>
           </article>
           <article class="cj" id="cj-b5" data-cj="b5" data-title="Cone Cross-section" aria-labelledby="t-b5">
@@ -1053,6 +1148,24 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                 </div>
               </div>
             </div>
+            <div class="anchor-group gesture-group" data-code="gestures">
+              <div class="anchor-head">
+                <h3>
+                  <span class="code-name">Gestures</span>
+                </h3>
+                <p class="anchor-question">What a qualifying gesture could look like on this conjecture, described in words. Code from the hands in the video.</p>
+              </div>
+              <dl class="gesture-list">
+                <div>
+                  <dt>Dynamic Gesture</dt>
+                  <dd>A flat hand slicing down through an imagined cone, tilting to show how the cut shape changes.</dd>
+                </div>
+                <div>
+                  <dt>Non-dynamic Gesture</dt>
+                  <dd>One hand forming a static cone; the other held flat and still as the cutting plane beside it.</dd>
+                </div>
+              </dl>
+            </div>
           </article>
           <article class="cj" id="cj-b6" data-cj="b6" data-title="Trapezoid" aria-labelledby="t-b6">
             <div class="panel cj-head">
@@ -1177,6 +1290,24 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                   </p>
                 </div>
               </div>
+            </div>
+            <div class="anchor-group gesture-group" data-code="gestures">
+              <div class="anchor-head">
+                <h3>
+                  <span class="code-name">Gestures</span>
+                </h3>
+                <p class="anchor-question">What a qualifying gesture could look like on this conjecture, described in words. Code from the hands in the video.</p>
+              </div>
+              <dl class="gesture-list">
+                <div>
+                  <dt>Dynamic Gesture</dt>
+                  <dd>Fingers drawing the two diagonals and showing the crossing point sliding toward the top as the top edge shortens.</dd>
+                </div>
+                <div>
+                  <dt>Non-dynamic Gesture</dt>
+                  <dd>Outlining a static trapezoid; pointing to the fixed intersection of the diagonals.</dd>
+                </div>
+              </dl>
             </div>
           </article>
           <article class="cj" id="cj-i1" data-cj="i1" data-title="Parallel Lines" aria-labelledby="t-i1">
@@ -1317,6 +1448,24 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                 </div>
               </div>
             </div>
+            <div class="anchor-group gesture-group" data-code="gestures">
+              <div class="anchor-head">
+                <h3>
+                  <span class="code-name">Gestures</span>
+                </h3>
+                <p class="anchor-question">What a qualifying gesture could look like on this conjecture, described in words. Code from the hands in the video.</p>
+              </div>
+              <dl class="gesture-list">
+                <div>
+                  <dt>Dynamic Gesture</dt>
+                  <dd>One flat hand sliding closer to a second parallel hand while a third element (the transversal) stays fixed, showing the angle unchanged.</dd>
+                </div>
+                <div>
+                  <dt>Non-dynamic Gesture</dt>
+                  <dd>Two hands held parallel with a finger or arm crossing them, all static; pointing to a fixed angle.</dd>
+                </div>
+              </dl>
+            </div>
           </article>
           <article class="cj" id="cj-i2" data-cj="i2" data-title="Cube" aria-labelledby="t-i2">
             <div class="panel cj-head">
@@ -1442,6 +1591,24 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                 </div>
               </div>
             </div>
+            <div class="anchor-group gesture-group" data-code="gestures">
+              <div class="anchor-head">
+                <h3>
+                  <span class="code-name">Gestures</span>
+                </h3>
+                <p class="anchor-question">What a qualifying gesture could look like on this conjecture, described in words. Code from the hands in the video.</p>
+              </div>
+              <dl class="gesture-list">
+                <div>
+                  <dt>Dynamic Gesture</dt>
+                  <dd>Hands pushing outward along three directions in turn to grow the cube, or stacking motions building up the eight sub-cubes.</dd>
+                </div>
+                <div>
+                  <dt>Non-dynamic Gesture</dt>
+                  <dd>Cupped hands forming a static cube; fingers marking a fixed edge length.</dd>
+                </div>
+              </dl>
+            </div>
           </article>
           <article class="cj" id="cj-i3" data-cj="i3" data-title="Cylinder" aria-labelledby="t-i3">
             <div class="panel cj-head">
@@ -1562,6 +1729,24 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                   </p>
                 </div>
               </div>
+            </div>
+            <div class="anchor-group gesture-group" data-code="gestures">
+              <div class="anchor-head">
+                <h3>
+                  <span class="code-name">Gestures</span>
+                </h3>
+                <p class="anchor-question">What a qualifying gesture could look like on this conjecture, described in words. Code from the hands in the video.</p>
+              </div>
+              <dl class="gesture-list">
+                <div>
+                  <dt>Dynamic Gesture</dt>
+                  <dd>A hand peeling the curved surface off the cylinder and flattening it into a rectangle, or a finger tracing around the rim as it unwraps.</dd>
+                </div>
+                <div>
+                  <dt>Non-dynamic Gesture</dt>
+                  <dd>A curved or cupped hand forming a static cylinder; two fingers held apart to mark the diameter.</dd>
+                </div>
+              </dl>
             </div>
           </article>
           <article class="cj" id="cj-i4" data-cj="i4" data-title="Triangle" aria-labelledby="t-i4">
@@ -1687,6 +1872,24 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                   </p>
                 </div>
               </div>
+            </div>
+            <div class="anchor-group gesture-group" data-code="gestures">
+              <div class="anchor-head">
+                <h3>
+                  <span class="code-name">Gestures</span>
+                </h3>
+                <p class="anchor-question">What a qualifying gesture could look like on this conjecture, described in words. Code from the hands in the video.</p>
+              </div>
+              <dl class="gesture-list">
+                <div>
+                  <dt>Dynamic Gesture</dt>
+                  <dd>A finger walking the path along two sides, then along the single direct side, to compare the routes; a hand pulling the apex down to collapse the triangle.</dd>
+                </div>
+                <div>
+                  <dt>Non-dynamic Gesture</dt>
+                  <dd>Fingers forming a static triangle; pointing to each of the three sides held still.</dd>
+                </div>
+              </dl>
             </div>
           </article>
           <article class="cj" id="cj-i5" data-cj="i5" data-title="Plane and Sphere" aria-labelledby="t-i5">
@@ -1828,6 +2031,24 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                 </div>
               </div>
             </div>
+            <div class="anchor-group gesture-group" data-code="gestures">
+              <div class="anchor-head">
+                <h3>
+                  <span class="code-name">Gestures</span>
+                </h3>
+                <p class="anchor-question">What a qualifying gesture could look like on this conjecture, described in words. Code from the hands in the video.</p>
+              </div>
+              <dl class="gesture-list">
+                <div>
+                  <dt>Dynamic Gesture</dt>
+                  <dd>A flat hand lowering onto a fist until it just grazes the top at a single point, or slicing through to sweep out a circle.</dd>
+                </div>
+                <div>
+                  <dt>Non-dynamic Gesture</dt>
+                  <dd>A fist held as a static sphere with a flat hand poised still above it; pointing to the contact point.</dd>
+                </div>
+              </dl>
+            </div>
           </article>
           <article class="cj" id="cj-i6" data-cj="i6" data-title="Circle" aria-labelledby="t-i6">
             <div class="panel cj-head">
@@ -1967,6 +2188,24 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                 </div>
               </div>
             </div>
+            <div class="anchor-group gesture-group" data-code="gestures">
+              <div class="anchor-head">
+                <h3>
+                  <span class="code-name">Gestures</span>
+                </h3>
+                <p class="anchor-question">What a qualifying gesture could look like on this conjecture, described in words. Code from the hands in the video.</p>
+              </div>
+              <dl class="gesture-list">
+                <div>
+                  <dt>Dynamic Gesture</dt>
+                  <dd>A finger drawing the chord, then drawing the perpendicular bisector and extending it on through the center; a hand swinging the chord around the circle.</dd>
+                </div>
+                <div>
+                  <dt>Non-dynamic Gesture</dt>
+                  <dd>A hand outlining a static circle; pointing to the center, or holding a finger along a fixed chord.</dd>
+                </div>
+              </dl>
+            </div>
           </article>
         </section>
         <section id="view-codes" class="view" aria-label="Codes and rules">
@@ -2072,6 +2311,131 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
               </li>
             </ul>
           </section>
+          <div class="group-intro" id="group-validity">
+            <h2>Validity codes</h2>
+            <p>Intuition and Insight judge whether the content is correct, not the form of the justification (<a href="#rule-C1">Rule C1</a>). In the re-coding pass they are carried over from the first pass.</p>
+          </div>
+          <section class="panel code-card" id="code-intuition" data-code="intuition" tabindex="-1">
+            <h2>Intuition</h2>
+            <p class="code-q">What was the participant's first verdict, and was it correct?</p>
+            <div>
+              <p class="label">Test, in order</p>
+              <ol class="test">
+                <li>Find the first true/false verdict stated after the statement is read.</li>
+                <li>If it is explicit, score it against the key: correct = <strong>1</strong>, incorrect = <strong>0</strong>.</li>
+                <li>If no clean verdict is stated, infer the stance from a minimal cue ("yeah," "no," "I don't think so") or from reasoning that stays consistent to the end: correct = <strong>1_inferred</strong>, incorrect = <strong>0_inferred</strong>.</li>
+                <li>Only if nothing can be inferred, code <strong>missing</strong>.</li>
+              </ol>
+            </div>
+            <div>
+              <p class="label">Values</p>
+              <div class="table-wrap">
+                <table class="values">
+                  <thead>
+                    <tr>
+                      <th scope="col">Value</th>
+                      <th scope="col">Use when</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="value">1</td>
+                      <td>Correct verdict, stated explicitly at the outset.</td>
+                    </tr>
+                    <tr>
+                      <td class="value">0</td>
+                      <td>Incorrect verdict, stated explicitly at the outset.</td>
+                    </tr>
+                    <tr>
+                      <td class="value">1_inferred</td>
+                      <td>No clean explicit verdict, but a correct stance is inferable, from a minimal cue ("yeah," "no," "I don't think so") or from reasoning that stays consistent through to the end.</td>
+                    </tr>
+                    <tr>
+                      <td class="value">0_inferred</td>
+                      <td>As above, but the inferable stance is incorrect.</td>
+                    </tr>
+                    <tr>
+                      <td class="value">missing</td>
+                      <td>The participant went straight into reasoning and no verdict can be inferred at all.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div>
+              <p class="label">When in doubt</p>
+              <p class="default">Infer before you settle on missing. Later changes of mind never alter the code; it is locked to the first verdict.</p>
+            </div>
+            <ul class="reminders">
+              <li>For i5, the verdict is scored by <a href="#rule-C5">Rule C5</a>, not by the key alone.</li>
+            </ul>
+          </section>
+          <section class="panel code-card" id="code-insight" data-code="insight" tabindex="-1">
+            <h2>Insight</h2>
+            <p class="code-q">Is at least one correct, relevant mathematical idea present?</p>
+            <div>
+              <p class="label">Test, in order</p>
+              <ol class="test">
+                <li>Set aside the verdict; look at the ideas offered.</li>
+                <li>Is there a valid idea, relationship, computation, or counterexample that bears on why the conjecture holds or fails? If yes, and nothing said about it is mathematically wrong, code <strong>1</strong>.</li>
+                <li>If the only content is a restatement of the conjecture, a wrong idea, or no idea, code <strong>0</strong>.</li>
+              </ol>
+            </div>
+            <div>
+              <p class="label">When in doubt</p>
+              <p class="default"><strong>Generous.</strong> If the spirit of a valid idea is there and the reasoning is not wrong, code 1, even when it is partial or loosely worded.</p>
+            </div>
+            <ul class="reminders">
+              <li>A correct verdict with no idea is 0.</li>
+              <li>A wrong verdict can still carry a correct idea (code 1).</li>
+              <li>Counterexamples are judged by <a href="#rule-C4">Rule C4</a>.</li>
+            </ul>
+          </section>
+          <div class="group-intro" id="group-gesture-codes">
+            <h2>Gesture codes</h2>
+            <p>The gesture codes are coded from the hands in the video, not from the speech (<a href="#rule-C7">Rule C7</a>). In the re-coding pass they are carried over from the first pass. Each conjecture page describes, in words, what a qualifying gesture might look like on that conjecture.</p>
+          </div>
+          <section class="panel code-card" id="code-dynamic" data-code="dynamic" tabindex="-1">
+            <h2>Dynamic Gesture</h2>
+            <p class="code-q">Does at least one hand gesture depict an object, or part of one, undergoing a change?</p>
+            <div>
+              <p class="label">Test, in order</p>
+              <ol class="test">
+                <li>Identify representational gesture units (<a href="#rule-C7">Rule C7</a>); ignore beats, self-touch, and incidental movement.</li>
+                <li>For each unit, ask whether the hand does something to the imagined object: rotates, slides, folds, stretches, compresses, slices, or carries it along a path, so that the object is shown in one state and then another.</li>
+                <li>If at least one unit does so, code <strong>1</strong>; otherwise <strong>0</strong>.</li>
+              </ol>
+            </div>
+            <div>
+              <p class="label">When in doubt</p>
+              <p class="default">Code from the hands, not the speech. If you cannot see a change enacted on the object, code 0.</p>
+            </div>
+            <ul class="reminders">
+              <li>A hand moving into position to show a shape, size, or location is placing the depiction, not transforming the object; that unit is Non-dynamic.</li>
+              <li>Tracing along an already-existing static line or arc is Non-dynamic; tracing that carries the object or its moving part along its path is Dynamic.</li>
+              <li>Within one unit that both holds a form and moves to change it, Dynamic wins (<a href="#rule-C7">Rule C7</a>).</li>
+            </ul>
+          </section>
+          <section class="panel code-card" id="code-nondynamic" data-code="nondynamic" tabindex="-1">
+            <h2>Non-dynamic Gesture</h2>
+            <p class="code-q">Does at least one hand gesture depict an object, or part of one, held static?</p>
+            <div>
+              <p class="label">Test, in order</p>
+              <ol class="test">
+                <li>Identify representational gesture units (<a href="#rule-C7">Rule C7</a>).</li>
+                <li>For each unit, ask whether the hands show the object's shape, outline, size, or location, point to or hold a part, or trace along an already-existing static line or arc, with no transforming motion.</li>
+                <li>If at least one unit does so, code <strong>1</strong>; otherwise <strong>0</strong>.</li>
+              </ol>
+            </div>
+            <div>
+              <p class="label">When in doubt</p>
+              <p class="default">Code from the hands, not the speech; presence, not count.</p>
+            </div>
+            <ul class="reminders">
+              <li>Both codes can be 1 in the same response when separate units qualify.</li>
+              <li>A single unit that both holds a form and changes it is Dynamic only; a separate static unit can still earn Non-dynamic.</li>
+            </ul>
+          </section>
           <section class="panel rules">
             <h2>Rules that apply across codes</h2>
             <div class="rule" id="rule-C1" tabindex="-1">
@@ -2150,63 +2514,51 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
                 <p>The researcher's reading of the statement, prompts, and encouragement never count toward any code. When the participant's speech is labeled "Researcher," or the speakers run together, use the content to tell them apart, and do not credit a passage to the participant unless the attribution is clear. Speech after the researcher has moved on to the next statement belongs to the next response.</p>
               </div>
             </div>
-          </section>
-          <section class="panel others" id="other-codes" tabindex="-1">
-            <h2>The other four codes, for reference</h2>
-            <p>In the re-coding pass these four codes are carried over from the first pass and are not changed. The full codebook defines them.</p>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Code</th>
-                    <th scope="col">Question</th>
-                    <th scope="col">The rule in one line</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>Intuition</strong>
-                    </td>
-                    <td>What was the participant's first verdict, and was it correct?</td>
-                    <td>Locked to the first verdict; infer from a minimal cue before choosing missing; i5 follows <a href="#rule-C5">Rule C5</a>.</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Insight</strong>
-                    </td>
-                    <td>Is at least one correct, relevant mathematical idea present?</td>
-                    <td>Generous; a valid idea, even partial or loosely worded, is 1 if nothing said about it is wrong.</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Dynamic Gesture</strong>
-                    </td>
-                    <td>Does at least one hand gesture depict an object, or part of one, undergoing a change?</td>
-                    <td>Code from the hands, not the speech; a unit that both holds a form and changes it is Dynamic.</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Non-dynamic Gesture</strong>
-                    </td>
-                    <td>Does at least one hand gesture depict an object, or part of one, held static?</td>
-                    <td>Shape, size, location, pointing, or tracing an existing static line; presence, not count.</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="rule" id="rule-C7" tabindex="-1">
+              <span class="rule-id">C7</span>
+              <div class="rule-body">
+                <p class="rule-title">Coding gestures.</p>
+                <p>Code only representational gestures, those that depict geometric content (a shape, a part, a location, or a transformation); ignore beat gestures, self-touch, and incidental hand movement. A gesture unit begins when the hands leave rest, depicts the object or its transformation, and ends when they return to rest; onset and offset are treated as visibly recognizable. Each gesture code asks whether at least one qualifying unit occurs anywhere in the response; the number of gestures does not matter. If a single unit both traces or holds a static form and moves to change it, code that unit Dynamic; a separate static unit can still earn Non-dynamic. Determine gestures as far as possible from the hand movement and the action context alone, relying on the accompanying speech as little as possible.</p>
+              </div>
             </div>
           </section>
         </section>
         <section id="view-trees" class="view" aria-label="Decision trees">
           <div class="panel intro">
             <h2>Decision trees</h2>
-            <p>Each tree is the code's test drawn as a sequence of yes-or-no questions. When you cannot answer "yes" on the evidence of the participant's own words, answer "no." The trees are for learning the tests and for settling a response you are unsure about; once the tests are familiar, the Codes view is faster.</p>
+            <p>Each tree is the code's test drawn as a sequence of yes-or-no questions. When you cannot answer "yes" on the evidence of the participant's own words, answer "no." The trees are for learning the tests and for settling a response you are unsure about; once the tests are familiar, the Codes view is faster. Pick the conjecture you are coding, and each tree shows that conjecture's anchors beneath it, so the examples are at hand while you decide.</p>
           </div>
           <nav class="tree-tabs" aria-label="Decision tree">
             <a href="#tree-general" data-tree="general" data-code="general">General</a>
             <a href="#tree-logical" data-tree="logical" data-code="logical">Logical</a>
             <a href="#tree-operative" data-tree="operative" data-code="operative">Operative</a>
+            <a href="#tree-intuition" data-tree="intuition" data-code="intuition">Intuition</a>
+            <a href="#tree-insight" data-tree="insight" data-code="insight">Insight</a>
+            <a href="#tree-gestures" data-tree="gestures" data-code="gestures">Gesture units</a>
           </nav>
+          <div class="tree-cj-picker" hidden role="group" aria-label="Show examples from conjecture">
+            <span class="filter-label">Examples from</span>
+            <div class="cj-nav">
+              <div class="cj-group">
+                <span class="cj-group-label">Baseline</span>
+                <button type="button" class="cj-btn" data-ex-cj="b1" aria-pressed="false" title="b1: Prism Diagonal" aria-label="b1, Prism Diagonal">b1</button>
+                <button type="button" class="cj-btn" data-ex-cj="b2" aria-pressed="false" title="b2: Polygons and Angles" aria-label="b2, Polygons and Angles">b2</button>
+                <button type="button" class="cj-btn" data-ex-cj="b3" aria-pressed="false" title="b3: Pyramid Volume" aria-label="b3, Pyramid Volume">b3</button>
+                <button type="button" class="cj-btn" data-ex-cj="b4" aria-pressed="false" title="b4: Similar Triangles" aria-label="b4, Similar Triangles">b4</button>
+                <button type="button" class="cj-btn" data-ex-cj="b5" aria-pressed="false" title="b5: Cone Cross-section" aria-label="b5, Cone Cross-section">b5</button>
+                <button type="button" class="cj-btn" data-ex-cj="b6" aria-pressed="false" title="b6: Trapezoid" aria-label="b6, Trapezoid">b6</button>
+              </div>
+              <div class="cj-group">
+                <span class="cj-group-label">VR</span>
+                <button type="button" class="cj-btn" data-ex-cj="i1" aria-pressed="false" title="i1: Parallel Lines" aria-label="i1, Parallel Lines">i1</button>
+                <button type="button" class="cj-btn" data-ex-cj="i2" aria-pressed="false" title="i2: Cube" aria-label="i2, Cube">i2</button>
+                <button type="button" class="cj-btn" data-ex-cj="i3" aria-pressed="false" title="i3: Cylinder" aria-label="i3, Cylinder">i3</button>
+                <button type="button" class="cj-btn" data-ex-cj="i4" aria-pressed="false" title="i4: Triangle" aria-label="i4, Triangle">i4</button>
+                <button type="button" class="cj-btn" data-ex-cj="i5" aria-pressed="false" title="i5: Plane and Sphere" aria-label="i5, Plane and Sphere">i5</button>
+                <button type="button" class="cj-btn" data-ex-cj="i6" aria-pressed="false" title="i6: Circle" aria-label="i6, Circle">i6</button>
+              </div>
+            </div>
+          </div>
           <section class="tree" id="panel-tree-general" data-code="general" aria-labelledby="tree-h-general">
             <div class="tree-head">
               <h2 id="tree-h-general">General</h2>
@@ -2313,6 +2665,7 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
               </li>
             </ol>
             <div class="panel stepper" hidden aria-live="polite"></div>
+            <section class="tree-examples" aria-label="Examples on the chosen conjecture"></section>
           </section>
           <section class="tree" id="panel-tree-logical" data-code="logical" aria-labelledby="tree-h-logical">
             <div class="tree-head">
@@ -2498,6 +2851,7 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
               </li>
             </ol>
             <div class="panel stepper" hidden aria-live="polite"></div>
+            <section class="tree-examples" aria-label="Examples on the chosen conjecture"></section>
           </section>
           <section class="tree" id="panel-tree-operative" data-code="operative" aria-labelledby="tree-h-operative">
             <div class="tree-head">
@@ -2616,6 +2970,307 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
               </li>
             </ol>
             <div class="panel stepper" hidden aria-live="polite"></div>
+            <section class="tree-examples" aria-label="Examples on the chosen conjecture"></section>
+          </section>
+          <section class="tree" id="panel-tree-intuition" data-code="intuition" aria-labelledby="tree-h-intuition">
+            <div class="tree-head">
+              <h2 id="tree-h-intuition">Intuition</h2>
+              <button type="button" class="btn primary step-start" hidden>Step through a response</button>
+            </div>
+            <ol class="spine">
+              <li class="start">
+                <div class="panel node">
+                  <p class="node-start">
+                    <strong>Start. </strong>
+                    Find the first true/false verdict stated after the statement is read. The code is locked to that first verdict; later changes of mind never alter it.
+                  </p>
+                </div>
+              </li>
+              <li id="step-I1">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">I1</span>
+                    Is the first verdict stated explicitly?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="goto">go to I2</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="goto">go to I3</span>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li id="step-I2">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">I2</span>
+                    Does the verdict match the key?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome one">Intuition = 1</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">Intuition = 0</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      For i5, the verdict is scored by <a href="#rule-C5">Rule C5</a>, not by the key alone.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li id="step-I3">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">I3</span>
+                    Can a stance be inferred from a minimal cue ("yeah," "no," "I don't think so") or from reasoning that stays consistent to the end?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="goto">go to I4</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">Intuition = missing</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      Infer before you settle on missing. Missing is for a participant who went straight into reasoning, with no verdict that can be inferred at all.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li id="step-I4">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">I4</span>
+                    Does the inferred stance match the key?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">Intuition = 1_inferred</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">Intuition = 0_inferred</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      For i5, the stance is scored by <a href="#rule-C5">Rule C5</a>, not by the key alone.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ol>
+            <div class="panel stepper" hidden aria-live="polite"></div>
+            <section class="tree-examples" aria-label="Examples on the chosen conjecture"></section>
+          </section>
+          <section class="tree" id="panel-tree-insight" data-code="insight" aria-labelledby="tree-h-insight">
+            <div class="tree-head">
+              <h2 id="tree-h-insight">Insight</h2>
+              <button type="button" class="btn primary step-start" hidden>Step through a response</button>
+            </div>
+            <ol class="spine">
+              <li class="start">
+                <div class="panel node">
+                  <p class="node-start">
+                    <strong>Start. </strong>
+                    Set aside the verdict and look at the ideas offered.
+                  </p>
+                </div>
+              </li>
+              <li id="step-N1">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">N1</span>
+                    Is there a valid idea, relationship, computation, or counterexample that bears on why the conjecture holds or fails?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="goto">go to N2</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">Insight = 0</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      A restatement of the conjecture, a wrong idea, or no idea is 0, and so is a correct verdict with no idea. Counterexamples are judged by <a href="#rule-C4">Rule C4</a>. Insight is generous: the spirit of a valid idea is enough, even when it is partial or loosely worded.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li id="step-N2">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">N2</span>
+                    Is anything said about that idea mathematically wrong?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">Insight = 0</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome one">Insight = 1</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      A wrong verdict can still carry a correct idea, which is 1.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ol>
+            <div class="panel stepper" hidden aria-live="polite"></div>
+            <section class="tree-examples" aria-label="Examples on the chosen conjecture"></section>
+          </section>
+          <section class="tree" id="panel-tree-gestures" data-code="gestures" aria-labelledby="tree-h-gestures">
+            <div class="tree-head">
+              <h2 id="tree-h-gestures">Gesture units</h2>
+              <button type="button" class="btn primary step-start" hidden>Step through a response</button>
+            </div>
+            <ol class="spine">
+              <li class="start">
+                <div class="panel node">
+                  <p class="node-start">
+                    <strong>Start. </strong>
+                    Take each gesture unit in turn; a unit begins when the hands leave rest and ends when they return to rest (<a href="#rule-C7">Rule C7</a>). Code from the hands, not the speech. Each gesture code is 1 when at least one unit counts for it; the number of gestures does not matter.
+                  </p>
+                </div>
+              </li>
+              <li id="step-U1">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">U1</span>
+                    Is the unit representational, that is, does it depict geometric content (a shape, a part, a location, or a transformation)?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="goto">go to U2</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">This unit counts for neither code</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      Ignore beat gestures, self-touch, and incidental hand movement.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li id="step-U2">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">U2</span>
+                    Does the hand do something to the imagined object (rotate, slide, fold, stretch, compress, slice, or carry it along a path), so that the object is shown in one state and then another?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">This unit counts for Dynamic Gesture</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="goto">go to U3</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      A hand moving into position to show a shape, size, or location is placing the depiction, not transforming the object. Tracing that carries the object or its moving part along its path is Dynamic. A unit that both holds a form and moves to change it is Dynamic (<a href="#rule-C7">Rule C7</a>).
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li id="step-U3">
+                <div class="panel node">
+                  <p class="node-q">
+                    <span class="sid">U3</span>
+                    Do the hands show the object's shape, outline, size, or location, point to or hold a part, or trace along an already-existing static line or arc?
+                  </p>
+                  <div class="exits">
+                    <span class="exit">
+                      <span class="ans">Yes</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">This unit counts for Non-dynamic Gesture</span>
+                    </span>
+                    <span class="exit">
+                      <span class="ans">No</span>
+                      <span aria-hidden="true">→</span>
+                      <span class="visually-hidden"> leads to </span>
+                      <span class="outcome zero">This unit counts for neither code</span>
+                    </span>
+                  </div>
+                  <div class="node-watch">
+                    <p>
+                      <strong>Watch for. </strong>
+                      Both gesture codes can be 1 in the same response when separate units qualify, so a static unit still counts for Non-dynamic when another unit is Dynamic.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ol>
+            <div class="panel stepper" hidden aria-live="polite"></div>
+            <section class="tree-examples" aria-label="Examples on the chosen conjecture"></section>
           </section>
         </section>
       </div>
@@ -2627,7 +3282,7 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
         <p>Set in Source Sans 3 and Source Serif 4 (Adobe, SIL Open Font License 1.1).</p>
       </div>
     </footer>
-    <script type="application/json" id="tree-data">{"general":{"name":"General","steps":[{"id":"G1","question":"In the participant's own words, is the conclusion stated to hold for all instances?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A property stated about the object (\"a sphere is round,\" \"the diagonal goes through three dimensions\") is not by itself a generalization, even when the verdict is confident; it earns General only when the participant uses it to conclude for all instances. A derivation on an unspecified triangle or cube, with no claim that it covers all such objects, is 0 (the <a href=\"#b4\">b4 page<\/a>). \"I can't think of a case where it fails,\" after trying cases, reports a search. An analogy (\"a Kleenex box\") is coded by the reasoning that follows it.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"next":"G2"}},{"id":"G2","question":"Is a tested case explicitly extended to the whole class?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The extension must be explicit (\"it works for one by one, and that applies to any cube\"); the same tested case without it is 0 (the <a href=\"#i2\">i2 page<\/a>). The claim about the class earns the code whether or not it is correct.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"next":"G3"}},{"id":"G3","question":"Is the conjecture false, and is it refuted by a valid counterexample?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Validity follows <a href=\"#rule-C4\">Rule C4<\/a>: mathematically correct, actually refuting the conjecture, and named specifically enough to check. An incorrect counterexample, or one whose description mixes correct and incorrect claims, earns neither General nor Logical, whereas a wrong remark beside a valid case does not undo the case. A refutation that is not a counterexample (\"the width is always the circumference, which is pi times the diameter, not twice it\") is judged at G1.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}}]},"logical":{"name":"Logical","steps":[{"id":"L0","question":"Does the reasoning rest on a counterexample?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    This branch applies <a href=\"#rule-C4\">Rule C4<\/a>. A response without a counterexample goes straight to the chain test at L1.\n  <\/p>\n<\/div>","if_yes":{"next":"L0a"},"if_no":{"next":"L1"}},{"id":"L0a","question":"Is the counterexample valid, that is, correct, actually refuting the conjecture, and named specifically enough to check?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    An invalid counterexample earns neither General nor Logical (<a href=\"#rule-C4\">Rule C4<\/a>).\n  <\/p>\n<\/div>","if_yes":{"next":"L0b"},"if_no":{"result":0}},{"id":"L0b","question":"Does the participant state what the case produces, such as a shape, sum, crossing point, straight edge, or corner?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The result may be loosely worded (\"somewhat of a triangle,\" \"it comes to a point\"). Saying only that the case fails, or that the result is not a circle or an ellipse, does not state what the case produces (the <a href=\"#b5\">b5 page<\/a>); such a response goes on to L1 and is checked for a chain like any other.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"next":"L1","label":"No, only that it fails"}},{"id":"L1","question":"Is a premise stated, that is, a fact, definition, computation, case, or if–then claim?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Specific numbers do not make reasoning empirical: a computation whose operands and result are stated (\"each angle is 90 and there are four, so 360\") supplies a step even on a single instance. A stated step counts even when the participant credits it to memory or a lesson, whereas authority offered in place of steps (\"it's a theorem\") or appearance (\"it looks right\") is not a premise. Steps need not all be correct.\n  <\/p>\n<\/div>","if_yes":{"next":"L2"},"if_no":{"result":0}},{"id":"L2","question":"Does the premise produce a stated intermediate claim that says more than the premise and is not the conclusion?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The conclusion, which is the conjecture's claim or its denial, is never the intermediate. A general property followed directly by the verdict (\"a sphere is round, so any cut is a circle\") has no intermediate, and neither does one reason followed by the verdict, however apt. A case that is only confirmed, with its outcome reported rather than derived (\"I pictured a square and it's 360\"), has no intermediate. A construction is a step when the participant builds the figure, places the target in it (\"the diagonal is its hypotenuse\"), and gives the fact that yields the conclusion; if the placement is not said, the middle step is left to the reader and the answer is no.\n  <\/p>\n<\/div>","if_yes":{"next":"L3"},"if_no":{"result":0}},{"id":"L3","question":"Is that intermediate claim then used to reach the conclusion?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The conclusion may be the verdict the participant has already given, when the intermediate is offered as its reason. A VR observation retold with its outcome is Operative, not Logical, unless the participant adds steps. A complete chain built on a misreading of the conjecture is Logical = 1 with Insight = 0, which is rare.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}}]},"operative":{"name":"Operative","steps":[{"id":"O1","question":"Operation: does the participant name a specific change to the object or its quantities, or a construction built from its named parts, that you could picture from their words? It may be performed in VR, watched, or only imagined.","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for.<\/strong>\n  <\/p>\n  <p class=\"watch-lead\">Counts as an operation:<\/p>\n  <ul>\n    <li>a change the participant makes to the object or its quantities (cut through the tip, unroll the surface, double each side);<\/li>\n    <li>a plane, line, or point placed at a stated position (\"at the very top it'd be a point\");<\/li>\n    <li>a construction whose parts are named (\"a perpendicular from the center to the chord\");<\/li>\n    <li>an operation on quantities that derives a value the case did not supply (subtracting the two known angles from 180 to get the third);<\/li>\n    <li>a VR manipulation, performed or watched, retold with the motion named (\"as I pulled the blue line closer\"), even if the mover is named loosely (\"it\") when the task leaves no doubt.<\/li>\n  <\/ul>\n  <p class=\"watch-lead\">Does not count:<\/p>\n  <ul>\n    <li>picturing or drawing the figure the conjecture already describes;<\/li>\n    <li>a figure thought of beside a recalled fact;<\/li>\n    <li>naming a kind of case (\"a trapezoid whose sides are angled differently\") or a change only by its effect (\"modify it so they don't bisect\");<\/li>\n    <li>ranging over all positions at once (\"no matter where you place the chord\");<\/li>\n    <li>a conditional that describes the figure's own state (\"if there were no top side\") or how the property runs with that state (\"larger angles when the lines are farther apart\");<\/li>\n    <li>reciting a relation or totalling values already given (\"four right angles make 360\");<\/li>\n    <li>recalling an end state, or that something was manipulated, without the motion that produced it.<\/li>\n  <\/ul>\n<\/div>","if_yes":{"next":"O2"},"if_no":{"result":0}},{"id":"O2","question":"Result: does the participant state what that operation produces?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A result may be a shape, size, position, or value, a direction of change (\"more space left\"), what the result is not (\"not a circle or an ellipse\"), or that the property changed or stayed the same. It may be hedged, loosely worded, revised, or wrong. A menu of possible outcomes that is not tied to the named operation, or a doubt in place of an outcome (\"who's to say where the midpoint is\"), is not a result.\n  <\/p>\n<\/div>","if_yes":{"next":"O3"},"if_no":{"result":0}},{"id":"O3","question":"Bearing: does the result concern the property the conjecture is about, not only the setup?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A result that describes only the setup (\"the sides doubled,\" \"it formed a rectangle\") does not bear on the property. The result need not reach the conjecture's own comparison: \"the width stays the same\" concerns the width.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}}]}}</script>
+    <script type="application/json" id="tree-data">{"general":{"name":"General","outcome_label":"General =","steps":[{"id":"G1","question":"In the participant's own words, is the conclusion stated to hold for all instances?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A property stated about the object (\"a sphere is round,\" \"the diagonal goes through three dimensions\") is not by itself a generalization, even when the verdict is confident; it earns General only when the participant uses it to conclude for all instances. A derivation on an unspecified triangle or cube, with no claim that it covers all such objects, is 0 (the <a href=\"#b4\">b4 page<\/a>). \"I can't think of a case where it fails,\" after trying cases, reports a search. An analogy (\"a Kleenex box\") is coded by the reasoning that follows it.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"next":"G2"}},{"id":"G2","question":"Is a tested case explicitly extended to the whole class?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The extension must be explicit (\"it works for one by one, and that applies to any cube\"); the same tested case without it is 0 (the <a href=\"#i2\">i2 page<\/a>). The claim about the class earns the code whether or not it is correct.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"next":"G3"}},{"id":"G3","question":"Is the conjecture false, and is it refuted by a valid counterexample?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Validity follows <a href=\"#rule-C4\">Rule C4<\/a>: mathematically correct, actually refuting the conjecture, and named specifically enough to check. An incorrect counterexample, or one whose description mixes correct and incorrect claims, earns neither General nor Logical, whereas a wrong remark beside a valid case does not undo the case. A refutation that is not a counterexample (\"the width is always the circumference, which is pi times the diameter, not twice it\") is judged at G1.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}}]},"logical":{"name":"Logical","outcome_label":"Logical =","steps":[{"id":"L0","question":"Does the reasoning rest on a counterexample?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    This branch applies <a href=\"#rule-C4\">Rule C4<\/a>. A response without a counterexample goes straight to the chain test at L1.\n  <\/p>\n<\/div>","if_yes":{"next":"L0a"},"if_no":{"next":"L1"}},{"id":"L0a","question":"Is the counterexample valid, that is, correct, actually refuting the conjecture, and named specifically enough to check?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    An invalid counterexample earns neither General nor Logical (<a href=\"#rule-C4\">Rule C4<\/a>).\n  <\/p>\n<\/div>","if_yes":{"next":"L0b"},"if_no":{"result":0}},{"id":"L0b","question":"Does the participant state what the case produces, such as a shape, sum, crossing point, straight edge, or corner?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The result may be loosely worded (\"somewhat of a triangle,\" \"it comes to a point\"). Saying only that the case fails, or that the result is not a circle or an ellipse, does not state what the case produces (the <a href=\"#b5\">b5 page<\/a>); such a response goes on to L1 and is checked for a chain like any other.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"next":"L1","label":"No, only that it fails"}},{"id":"L1","question":"Is a premise stated, that is, a fact, definition, computation, case, or if–then claim?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Specific numbers do not make reasoning empirical: a computation whose operands and result are stated (\"each angle is 90 and there are four, so 360\") supplies a step even on a single instance. A stated step counts even when the participant credits it to memory or a lesson, whereas authority offered in place of steps (\"it's a theorem\") or appearance (\"it looks right\") is not a premise. Steps need not all be correct.\n  <\/p>\n<\/div>","if_yes":{"next":"L2"},"if_no":{"result":0}},{"id":"L2","question":"Does the premise produce a stated intermediate claim that says more than the premise and is not the conclusion?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The conclusion, which is the conjecture's claim or its denial, is never the intermediate. A general property followed directly by the verdict (\"a sphere is round, so any cut is a circle\") has no intermediate, and neither does one reason followed by the verdict, however apt. A case that is only confirmed, with its outcome reported rather than derived (\"I pictured a square and it's 360\"), has no intermediate. A construction is a step when the participant builds the figure, places the target in it (\"the diagonal is its hypotenuse\"), and gives the fact that yields the conclusion; if the placement is not said, the middle step is left to the reader and the answer is no.\n  <\/p>\n<\/div>","if_yes":{"next":"L3"},"if_no":{"result":0}},{"id":"L3","question":"Is that intermediate claim then used to reach the conclusion?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    The conclusion may be the verdict the participant has already given, when the intermediate is offered as its reason. A VR observation retold with its outcome is Operative, not Logical, unless the participant adds steps. A complete chain built on a misreading of the conjecture is Logical = 1 with Insight = 0, which is rare.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}}]},"operative":{"name":"Operative","outcome_label":"Operative =","steps":[{"id":"O1","question":"Operation: does the participant name a specific change to the object or its quantities, or a construction built from its named parts, that you could picture from their words? It may be performed in VR, watched, or only imagined.","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for.<\/strong>\n  <\/p>\n  <p class=\"watch-lead\">Counts as an operation:<\/p>\n  <ul>\n    <li>a change the participant makes to the object or its quantities (cut through the tip, unroll the surface, double each side);<\/li>\n    <li>a plane, line, or point placed at a stated position (\"at the very top it'd be a point\");<\/li>\n    <li>a construction whose parts are named (\"a perpendicular from the center to the chord\");<\/li>\n    <li>an operation on quantities that derives a value the case did not supply (subtracting the two known angles from 180 to get the third);<\/li>\n    <li>a VR manipulation, performed or watched, retold with the motion named (\"as I pulled the blue line closer\"), even if the mover is named loosely (\"it\") when the task leaves no doubt.<\/li>\n  <\/ul>\n  <p class=\"watch-lead\">Does not count:<\/p>\n  <ul>\n    <li>picturing or drawing the figure the conjecture already describes;<\/li>\n    <li>a figure thought of beside a recalled fact;<\/li>\n    <li>naming a kind of case (\"a trapezoid whose sides are angled differently\") or a change only by its effect (\"modify it so they don't bisect\");<\/li>\n    <li>ranging over all positions at once (\"no matter where you place the chord\");<\/li>\n    <li>a conditional that describes the figure's own state (\"if there were no top side\") or how the property runs with that state (\"larger angles when the lines are farther apart\");<\/li>\n    <li>reciting a relation or totalling values already given (\"four right angles make 360\");<\/li>\n    <li>recalling an end state, or that something was manipulated, without the motion that produced it.<\/li>\n  <\/ul>\n<\/div>","if_yes":{"next":"O2"},"if_no":{"result":0}},{"id":"O2","question":"Result: does the participant state what that operation produces?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A result may be a shape, size, position, or value, a direction of change (\"more space left\"), what the result is not (\"not a circle or an ellipse\"), or that the property changed or stayed the same. It may be hedged, loosely worded, revised, or wrong. A menu of possible outcomes that is not tied to the named operation, or a doubt in place of an outcome (\"who's to say where the midpoint is\"), is not a result.\n  <\/p>\n<\/div>","if_yes":{"next":"O3"},"if_no":{"result":0}},{"id":"O3","question":"Bearing: does the result concern the property the conjecture is about, not only the setup?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A result that describes only the setup (\"the sides doubled,\" \"it formed a rectangle\") does not bear on the property. The result need not reach the conjecture's own comparison: \"the width stays the same\" concerns the width.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}}]},"intuition":{"name":"Intuition","outcome_label":"Intuition =","steps":[{"id":"I1","question":"Is the first verdict stated explicitly?","watch":[],"if_yes":{"next":"I2"},"if_no":{"next":"I3"}},{"id":"I2","question":"Does the verdict match the key?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    For i5, the verdict is scored by <a href=\"#rule-C5\">Rule C5<\/a>, not by the key alone.\n  <\/p>\n<\/div>","if_yes":{"result":1},"if_no":{"result":0}},{"id":"I3","question":"Can a stance be inferred from a minimal cue (\"yeah,\" \"no,\" \"I don't think so\") or from reasoning that stays consistent to the end?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Infer before you settle on missing. Missing is for a participant who went straight into reasoning, with no verdict that can be inferred at all.\n  <\/p>\n<\/div>","if_yes":{"next":"I4"},"if_no":{"result":"missing"}},{"id":"I4","question":"Does the inferred stance match the key?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    For i5, the stance is scored by <a href=\"#rule-C5\">Rule C5<\/a>, not by the key alone.\n  <\/p>\n<\/div>","if_yes":{"result":"1_inferred"},"if_no":{"result":"0_inferred"}}]},"insight":{"name":"Insight","outcome_label":"Insight =","steps":[{"id":"N1","question":"Is there a valid idea, relationship, computation, or counterexample that bears on why the conjecture holds or fails?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A restatement of the conjecture, a wrong idea, or no idea is 0, and so is a correct verdict with no idea. Counterexamples are judged by <a href=\"#rule-C4\">Rule C4<\/a>. Insight is generous: the spirit of a valid idea is enough, even when it is partial or loosely worded.\n  <\/p>\n<\/div>","if_yes":{"next":"N2"},"if_no":{"result":0}},{"id":"N2","question":"Is anything said about that idea mathematically wrong?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A wrong verdict can still carry a correct idea, which is 1.\n  <\/p>\n<\/div>","if_yes":{"result":0},"if_no":{"result":1}}]},"gestures":{"name":"Gesture units","outcome_label":"This unit counts for","steps":[{"id":"U1","question":"Is the unit representational, that is, does it depict geometric content (a shape, a part, a location, or a transformation)?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Ignore beat gestures, self-touch, and incidental hand movement.\n  <\/p>\n<\/div>","if_yes":{"next":"U2"},"if_no":{"result":"neither code"}},{"id":"U2","question":"Does the hand do something to the imagined object (rotate, slide, fold, stretch, compress, slice, or carry it along a path), so that the object is shown in one state and then another?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    A hand moving into position to show a shape, size, or location is placing the depiction, not transforming the object. Tracing that carries the object or its moving part along its path is Dynamic. A unit that both holds a form and moves to change it is Dynamic (<a href=\"#rule-C7\">Rule C7<\/a>).\n  <\/p>\n<\/div>","if_yes":{"result":"Dynamic Gesture"},"if_no":{"next":"U3"}},{"id":"U3","question":"Do the hands show the object's shape, outline, size, or location, point to or hold a part, or trace along an already-existing static line or arc?","watch":"<div class=\"node-watch\">\n  <p>\n    <strong>Watch for. <\/strong>\n    Both gesture codes can be 1 in the same response when separate units qualify, so a static unit still counts for Non-dynamic when another unit is Dynamic.\n  <\/p>\n<\/div>","if_yes":{"result":"Non-dynamic Gesture"},"if_no":{"result":"neither code"}}]}}</script>
     <script>/* iGRASP Coding Companion: behavior.
    Progressive enhancement: without this script every section is shown in one long page.
    With it, one view (Conjectures, Codes, Trees) and one conjecture are shown at a time, the
@@ -2713,6 +3368,73 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
     });
   });
 
+  /* ---------- examples beside the trees ---------- */
+  // Each tree shows the chosen conjecture's anchors for its code. They are copied from the
+  // conjecture pages already on this page, so every anchor is written once (conjectures.yml)
+  // and cannot differ between the two views. The chosen conjecture is the same one the
+  // Conjectures view shows, so a coder who switches to the trees mid-response keeps it.
+  var exPicker = $(".tree-cj-picker");
+  function make(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined) n.textContent = text;
+    return n;
+  }
+  function fillTreeExamples() {
+    var cjEl = $("#cj-" + state.cj);
+    if (!cjEl) return;
+    var title = cjEl.getAttribute("data-title");
+    var truthEl = $(".truth", cjEl);
+    var truth = truthEl ? truthEl.textContent.replace(/\s+/g, " ").replace("Truth value:", "").trim() : "";
+    $all(".tree").forEach(function (treeEl) {
+      var code = treeEl.getAttribute("data-code");
+      var box = $(".tree-examples", treeEl);
+      if (!box) return;
+      box.innerHTML = "";
+      box.appendChild(make("h3", "", (code === "intuition" ? "The key on " : "Anchors on ") +
+        state.cj + ", " + title + " (" + truth + ")"));
+      var statement = $(".statement", cjEl);
+      if (statement) box.appendChild(statement.cloneNode(true));
+      var group = $('.anchor-group[data-code="' + code + '"]', cjEl);
+      if (group) {
+        // A copy under another class name, so that the anchor filter never hides it.
+        var copy = group.cloneNode(true);
+        copy.hidden = false;
+        copy.className = "tree-anchor";
+        var head = $(".anchor-head", copy);
+        if (head) copy.removeChild(head);
+        box.appendChild(copy);
+      } else if (code === "intuition") {
+        var note = $(".truth-note", cjEl);
+        var p = make("p", "note");
+        p.innerHTML = "Score the first verdict against this truth value" +
+          (note ? ". " + note.innerHTML : ".");
+        box.appendChild(p);
+      } else {
+        box.appendChild(make("p", "note", "The codebook gives no conjecture-specific anchors for " +
+          treeEl.querySelector("h2").textContent + ". The ideas that bear on this conjecture appear in its form-code anchors and its Watch for notes."));
+      }
+      var link = make("p", "ex-link");
+      var a = make("a", "", "Open the " + state.cj + " page");
+      a.href = "#" + state.cj;
+      link.appendChild(a);
+      box.appendChild(link);
+    });
+    $all("[data-ex-cj]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-ex-cj") === state.cj));
+    });
+  }
+  if (exPicker) {
+    exPicker.hidden = false;
+    $all("[data-ex-cj]", exPicker).forEach(function (b) {
+      b.addEventListener("click", function () {
+        state.cj = b.getAttribute("data-ex-cj");
+        store.set("cj", state.cj);
+        fillTreeExamples();
+      });
+    });
+  }
+
   /* ---------- routing ---------- */
   function parseHash(hash) {
     var h = (hash || "").replace(/^#/, "");
@@ -2762,6 +3484,8 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
     store.set("view", state.view);
     store.set("cj", state.cj);
     store.set("tree", state.tree);
+
+    fillTreeExamples();
 
     var wanted = currentHash();
     if (route && route.target) wanted = "#" + route.target;
@@ -2836,7 +3560,7 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
       return n;
     }
     function outcomeHtml(v) {
-      return '<span class="outcome ' + (v === 1 ? "one" : "zero") + '">' + data.name + " = " + v + "</span>";
+      return '<span class="outcome ' + (String(v) === "1" ? "one" : "zero") + '">' + data.outcome_label + " " + v + "</span>";
     }
     function draw() {
       box.innerHTML = "";
@@ -2846,8 +3570,9 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
         path.forEach(function (p) { trail.appendChild(el("li", "", p.id + ": " + p.answer)); });
         box.appendChild(trail);
       }
-      if (typeof current === "number") {
-        var res = el("p", "result", "Result: " + outcomeHtml(current));
+      // A finished walk holds {result: ...}; results can be words ("missing", "Dynamic Gesture"), not only 1 or 0.
+      if (current && typeof current === "object") {
+        var res = el("p", "result", "Result: " + outcomeHtml(current.result));
         res.setAttribute("tabindex", "-1");
         box.appendChild(res);
         var c = el("div", "controls");
@@ -2875,7 +3600,7 @@ td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; font-we
         b.type = "button";
         b.addEventListener("click", function () {
           path.push({ id: s.id, answer: pair[0] });
-          current = pair[1].next ? pair[1].next : pair[1].result;
+          current = pair[1].next ? pair[1].next : { result: pair[1].result };
           draw();
         });
         answers.appendChild(b);

@@ -449,6 +449,11 @@ table.ref td.cj-col { font-weight: 700; font-variant-numeric: tabular-nums; widt
 .stepper .result.is-zero { background: var(--no-bg); border-left-color: var(--no-ink); }
 .stepper .result.is-zero .outcome { color: var(--no-ink); }
 .stepper .controls { display: flex; flex-wrap: wrap; gap: 8px; }
+/* The finished walk's answers, with a small button that copies them as one line (2026-11-23). */
+.stepper .trail-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.btn.small { font-size: var(--step--1); padding: 2px 10px; min-height: 0; }
+.copy-wrap { display: inline-flex; align-items: center; gap: 8px; }
+.copy-status { font-size: var(--step--1); color: var(--muted); }
 
 /* ---------- footer ---------- */
 .site-foot { color: var(--muted); font-size: var(--step--1); padding-block: 8px 32px; }

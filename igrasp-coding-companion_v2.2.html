@@ -449,6 +449,11 @@ table.ref td.cj-col { font-weight: 700; font-variant-numeric: tabular-nums; widt
 .stepper .result.is-zero { background: var(--no-bg); border-left-color: var(--no-ink); }
 .stepper .result.is-zero .outcome { color: var(--no-ink); }
 .stepper .controls { display: flex; flex-wrap: wrap; gap: 8px; }
+/* The finished walk's answers, with a small button that copies them as one line (2026-11-23). */
+.stepper .trail-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.btn.small { font-size: var(--step--1); padding: 2px 10px; min-height: 0; }
+.copy-wrap { display: inline-flex; align-items: center; gap: 8px; }
+.copy-status { font-size: var(--step--1); color: var(--muted); }
 
 /* ---------- footer ---------- */
 .site-foot { color: var(--muted); font-size: var(--step--1); padding-block: 8px 32px; }
@@ -4746,11 +4751,21 @@ table.ref td.cj-col { font-weight: 700; font-variant-numeric: tabular-nums; widt
       if (focus === undefined) focus = true;
       parkExamples();
       box.innerHTML = "";
+      var finished = current && typeof current === "object";
       if (path.length) {
         var trail = el("ol", "trail");
         trail.setAttribute("aria-label", "Your answers so far");
         path.forEach(function (p) { trail.appendChild(el("li", "", p.id + ": " + p.answer)); });
-        box.appendChild(trail);
+        if (finished) {
+          // At the end of a walk the answers can be copied as one line for the Comment cell
+          // (Doy, 2026-11-23): "General = 0 (b4): G1 Yes › G2 No › … › G5c No".
+          var row = el("div", "trail-row");
+          row.appendChild(trail);
+          row.appendChild(copyButton());
+          box.appendChild(row);
+        } else {
+          box.appendChild(trail);
+        }
       }
       // A finished walk holds {result: ...}; results can be words ("missing", "Dynamic Gesture"), not only 1 or 0.
       if (notice) {
@@ -4835,6 +4850,49 @@ table.ref td.cj-col { font-weight: 700; font-variant-numeric: tabular-nums; widt
       box.appendChild(c2);
       if (examples) box.appendChild(examples);
       if (focus) q.focus();
+    }
+    function rationaleLine() {
+      var answers = path.map(function (p) { return p.id + " " + p.answer; }).join(" › ");
+      return data.outcome_label + " " + current.result + " (" + state.cj + "): " + answers;
+    }
+    // The clipboard API needs a secure page (https or a local file); the fallback covers the rest.
+    function copyText(text, done) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); });
+      } else {
+        done(fallbackCopy(text));
+      }
+    }
+    function fallbackCopy(text) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      return ok;
+    }
+    function copyButton() {
+      var wrap = el("span", "copy-wrap");
+      var b = el("button", "btn small copy-btn", "Copy");
+      b.type = "button";
+      b.setAttribute("aria-label", "Copy these answers and the result as one line");
+      b.title = "Copy these answers and the result as one line, for the Comment cell";
+      var status = el("span", "copy-status");
+      status.setAttribute("role", "status");
+      b.addEventListener("click", function () {
+        copyText(rationaleLine(), function (ok) {
+          status.textContent = ok ? "Copied" : "Could not copy; select the answers and copy them by hand.";
+          window.setTimeout(function () { status.textContent = ""; }, 2500);
+        });
+      });
+      wrap.appendChild(b);
+      wrap.appendChild(status);
+      return wrap;
     }
     function againButton(primary) {
       var b = el("button", primary ? "btn primary" : "btn", "Start again");
